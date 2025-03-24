@@ -7,6 +7,136 @@
     <title>Meqdar Al Zakat</title>
   </head>
   <body>
+    <nav>
+      <img
+        id="top-left-icon"
+        class="background-icon"
+        src="./white-lantern-icon.svg"
+      />
+      <h1 id="page-title">Meqdar Al Zakat</h1>
+      <img
+        id="top-right-icon"
+        class="background-icon"
+        src="./white-lantern-icon.svg"
+      />
+    </nav>
+
+    <section>
+      <form>
+        <div class="mb-3">
+          <label for="input-nisab" class="form-label"
+            >Nisab Calculated on</label
+          >
+          <select class="form-select" id="input-nisab">
+            <option value="silver" selected>Silver</option>
+            <option value="gold">Gold</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <h3>Cash</h3>
+          <label for="input-cash" class="form-label">Total cash</label>
+          <input
+            type="text"
+            class="form-control"
+            id="input-cash"
+            placeholder="0"
+          />
+        </div>
+        <div class="mb-3">
+          <h3>Gold and Silver</h3>
+          <label for="input-gold" class="form-label">Gold</label>
+          <input
+            type="text"
+            class="form-control"
+            id="input-gold"
+            placeholder="g or kg"
+          />
+          <label for="input-silver" class="form-label">Silver</label>
+          <input
+            type="text"
+            class="form-control"
+            id="input-silver"
+            placeholder="g or kg"
+          />
+        </div>
+        <div class="mb-3">
+          <h3>Livestock</h3>
+          <label for="input-camel" class="form-label">Camel</label>
+          <input
+            type="text"
+            class="form-control"
+            id="input-camel"
+            placeholder="count"
+          />
+          <label for="input-cattle" class="form-label"
+            >Cattle, including Buffalo</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="input-cattle"
+            placeholder="count"
+          />
+          <label for="input-sheep" class="form-label"
+            >Sheep, including Goats</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="input-sheep"
+            placeholder="count"
+          />
+        </div>
+        <div class="mb-3">
+          <h3>Crops and Fruits</h3>
+          <label for="input-wheat" class="form-label">Wheat</label>
+          <input
+            type="text"
+            class="form-control"
+            id="input-wheat"
+            placeholder="how many saa'"
+          />
+          <label for="input-barley" class="form-label">Barley</label>
+          <input
+            type="text"
+            class="form-control"
+            id="input-barley"
+            placeholder="how many saa'"
+          />
+          <label for="input-dates" class="form-label">Dates</label>
+          <input
+            type="text"
+            class="form-control"
+            id="input-dates"
+            placeholder="how many saa'"
+          />
+          <label for="input-raisins" class="form-label">Raisins</label>
+          <input
+            type="text"
+            class="form-control"
+            id="input-raisins"
+            placeholder="how many saa'"
+          />
+        </div>
+        <div class="mb-3">
+          <h3>Trade Goods</h3>
+          <label for="input-wheat" class="form-label"
+            >Total value of goods</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="input-wheat"
+            placeholder=""
+          />
+          <p>
+            maybe add a create button for trade goods where user can create his
+            own entry of trade goods so it shows in the summary
+          </p>
+        </div>
+      </form>
+    </section>
+
     <script type="module" src="./src/main.js"></script>
   </body>
 </html>
