@@ -1,36 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Playwrite+HU:wght@100..400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
 :root {
-  font-family: system-ui, "Roboto", "Segoe UI", Tahoma, Geneva, Verdana,
-    sans-serif;
+  font-family: "Roboto", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
   margin: 0;
-  /* height: 30vh; */
-  /* background-color: #398147; */
-
   overflow-x: hidden;
-}
-
-#page-title {
-  /* font-weight: 400; */
-  /* font-family: "Playwrite HU"; */
-  color: white;
-  font-size: 2vw;
-}
-
-.background-icon {
-  width: 10vw;
-  /* opacity: 0.75; */
-}
-
-#top-left-icon {
-  transform: scaleX(-1) rotate(15deg) translateX(0.2vw);
-}
-
-#top-right-icon {
-  transform: rotate(15deg) translateX(0.2vw);
 }
 
 nav {
@@ -57,4 +33,58 @@ nav {
 
   border-bottom-left-radius: 1.5vw;
   border-bottom-right-radius: 1.5vw;
+}
+
+#page-title {
+  /* font-weight: 400; */
+  /* font-family: "Playwrite HU"; */
+  color: white;
+  /* font-size: 2vw; */
+}
+
+.background-icon {
+  width: 10vw;
+}
+
+#top-left-icon {
+  transform: scaleX(-1) rotate(15deg) translateX(0.2vw);
+}
+
+#top-right-icon {
+  transform: rotate(15deg) translateX(0.2vw);
+}
+
+#form-section {
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  background-color: #f7f7f7;
+  width: 50%;
+  border: 1px solid #dee2e6;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  margin: 4vw;
+  padding: 2vw;
+}
+
+.input-with-label {
+  display: flex;
+  white-space: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1vw;
+}
+
+.form-control,
+.input-group {
+  width: auto;
+}
+.form-label {
+  margin: 0;
+}
+.form-select {
+  max-width: fit-content;
 }

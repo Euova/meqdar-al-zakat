@@ -3,6 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
     <link rel="stylesheet" href="./src/style.css" />
     <title>Meqdar Al Zakat</title>
   </head>
@@ -21,122 +26,210 @@
       />
     </nav>
 
-    <section>
+    <section id="form-section">
       <form>
-        <div class="mb-3">
-          <label for="input-nisab" class="form-label"
-            >Nisab Calculated on</label
-          >
-          <select class="form-select" id="input-nisab">
-            <option value="silver" selected>Silver</option>
-            <option value="gold">Gold</option>
-          </select>
-        </div>
-        <div class="mb-3">
+        <section class="mb-5">
+          <div class="input-with-label">
+            <label for="input-nisab" class="form-label"
+              >Nisab Calculated on</label
+            >
+            <select class="form-select" id="input-nisab">
+              <option value="silver" selected>Silver</option>
+              <option value="gold">Gold</option>
+            </select>
+          </div>
+          <h4>Nisab Value: <span id="nisab-value"></span></h4>
+        </section>
+
+        <section class="mb-5">
           <h3>Cash</h3>
-          <label for="input-cash" class="form-label">Total cash</label>
-          <input
-            type="text"
-            class="form-control"
-            id="input-cash"
-            placeholder="0"
-          />
-        </div>
-        <div class="mb-3">
+          <div class="input-with-label">
+            <label for="input-cash" class="form-label">Total cash</label>
+            <div class="input-group">
+              <select class="form-select" id="input-cash-currency">
+                <option value="aed" selected>AED</option>
+                <option value="$">$</option>
+                <option value="€">€</option>
+              </select>
+              <input
+                type="number"
+                class="form-control"
+                id="input-cash"
+                placeholder="0.00"
+                min="0"
+              />
+            </div>
+          </div>
+        </section>
+        <section class="mb-5">
           <h3>Gold and Silver</h3>
-          <label for="input-gold" class="form-label">Gold</label>
-          <input
-            type="text"
-            class="form-control"
-            id="input-gold"
-            placeholder="g or kg"
-          />
-          <label for="input-silver" class="form-label">Silver</label>
-          <input
-            type="text"
-            class="form-control"
-            id="input-silver"
-            placeholder="g or kg"
-          />
-        </div>
-        <div class="mb-3">
+          <div class="input-with-label">
+            <label for="input-gold" class="form-label">Gold</label>
+            <div class="input-group">
+              <input
+                type="number"
+                class="form-control"
+                id="input-gold"
+                placeholder="0.00"
+                min="0"
+              />
+              <select class="form-select" id="input-gold-unit">
+                <option value="g" selected>g</option>
+                <option value="kg">kg</option>
+              </select>
+            </div>
+          </div>
+          <div class="input-with-label">
+            <label for="input-silver" class="form-label">Silver</label>
+            <div class="input-group">
+              <input
+                type="number"
+                class="form-control"
+                id="input-silver"
+                placeholder="0.00"
+                min="0"
+              />
+              <select class="form-select" id="input-silver-unit">
+                <option value="g" selected>g</option>
+                <option value="kg">kg</option>
+              </select>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-5">
           <h3>Livestock</h3>
-          <label for="input-camel" class="form-label">Camel</label>
-          <input
-            type="text"
-            class="form-control"
-            id="input-camel"
-            placeholder="count"
-          />
-          <label for="input-cattle" class="form-label"
-            >Cattle, including Buffalo</label
-          >
-          <input
-            type="text"
-            class="form-control"
-            id="input-cattle"
-            placeholder="count"
-          />
-          <label for="input-sheep" class="form-label"
-            >Sheep, including Goats</label
-          >
-          <input
-            type="text"
-            class="form-control"
-            id="input-sheep"
-            placeholder="count"
-          />
-        </div>
-        <div class="mb-3">
+          <div class="input-with-label">
+            <label for="input-camel" class="form-label">Camel</label>
+            <div>
+              <input
+                type="number"
+                class="form-control"
+                id="input-camel"
+                placeholder="0"
+                min="0"
+              />
+            </div>
+          </div>
+          <div class="input-with-label">
+            <label for="input-cattle" class="form-label"
+              >Cattle (w/ Buffalo)</label
+            >
+            <div>
+              <input
+                type="number"
+                class="form-control"
+                id="input-cattle"
+                placeholder="0"
+                min="0"
+              />
+            </div>
+          </div>
+          <div class="input-with-label">
+            <label for="input-sheep" class="form-label">Sheep(w/ Goats)</label>
+            <div>
+              <input
+                type="number"
+                class="form-control"
+                id="input-sheep"
+                placeholder="0"
+                min="0"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-5">
           <h3>Crops and Fruits</h3>
-          <label for="input-wheat" class="form-label">Wheat</label>
-          <input
-            type="text"
-            class="form-control"
-            id="input-wheat"
-            placeholder="how many saa'"
-          />
-          <label for="input-barley" class="form-label">Barley</label>
-          <input
-            type="text"
-            class="form-control"
-            id="input-barley"
-            placeholder="how many saa'"
-          />
-          <label for="input-dates" class="form-label">Dates</label>
-          <input
-            type="text"
-            class="form-control"
-            id="input-dates"
-            placeholder="how many saa'"
-          />
-          <label for="input-raisins" class="form-label">Raisins</label>
-          <input
-            type="text"
-            class="form-control"
-            id="input-raisins"
-            placeholder="how many saa'"
-          />
-        </div>
-        <div class="mb-3">
+          <div class="input-with-label">
+            <label for="input-wheat" class="form-label">Wheat</label>
+            <div class="input-group">
+              <input
+                type="number"
+                class="form-control"
+                id="input-wheat"
+                placeholder="0"
+                min="0"
+              />
+              <select class="form-select" id="input-wheat-unit">
+                <option value="saa" selected>saa'</option>
+                <option value="wasq">wasq</option>
+              </select>
+            </div>
+          </div>
+          <div class="input-with-label">
+            <label for="input-barley" class="form-label">Barley</label>
+            <div class="input-group">
+              <input
+                type="number"
+                class="form-control"
+                id="input-barley"
+                placeholder="0"
+                min="0"
+              />
+              <select class="form-select" id="input-barley-unit">
+                <option value="saa" selected>saa'</option>
+                <option value="wasq">wasq</option>
+              </select>
+            </div>
+          </div>
+          <div class="input-with-label">
+            <label for="input-dates" class="form-label">Dates</label>
+            <div class="input-group">
+              <input
+                type="number"
+                class="form-control"
+                id="input-dates"
+                placeholder="0"
+                min="0"
+              />
+              <select class="form-select" id="input-dates-unit">
+                <option value="saa" selected>saa'</option>
+                <option value="wasq">wasq</option>
+              </select>
+            </div>
+          </div>
+          <div class="input-with-label">
+            <label for="input-raisins" class="form-label">Raisins</label>
+            <div class="input-group">
+              <input
+                type="number"
+                class="form-control"
+                id="input-raisins"
+                placeholder="0"
+                min="0"
+              />
+              <select class="form-select" id="input-raisins-unit">
+                <option value="saa" selected>saa'</option>
+                <option value="wasq">wasq</option>
+              </select>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-5">
           <h3>Trade Goods</h3>
-          <label for="input-wheat" class="form-label"
-            >Total value of goods</label
-          >
-          <input
-            type="text"
-            class="form-control"
-            id="input-wheat"
-            placeholder=""
-          />
-          <p>
-            maybe add a create button for trade goods where user can create his
-            own entry of trade goods so it shows in the summary
-          </p>
-        </div>
+          <div class="input-with-label">
+            <label for="input-goods" class="form-label"
+              >Total value of goods</label
+            >
+            <input
+              type="number"
+              class="form-control"
+              id="input-goods"
+              placeholder=""
+            />
+          </div>
+        </section>
+        <p>
+          maybe add a create button for trade goods where user can create his
+          own entry of trade goods so it shows in the summary
+        </p>
+        <button class="btn btn-primary" type="submit">Caculate Zakat</button>
       </form>
     </section>
 
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
     <script type="module" src="./src/main.js"></script>
   </body>
 </html>
