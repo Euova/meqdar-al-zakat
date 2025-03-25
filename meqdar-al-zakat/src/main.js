@@ -1,6 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
 import $ from "jquery";
+
 import { handleFormSubmit } from "./form-validator";
 import { calculateZakat } from "./api-fetch";
 

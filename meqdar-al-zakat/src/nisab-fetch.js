@@ -1,4 +1,4 @@
-import jQuery from "jquery";
+import $ from "jquery";
 
 // In grams
 const GOLD_NISAB_VALUE = 85;
