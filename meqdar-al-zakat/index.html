@@ -27,18 +27,17 @@
     </nav>
 
     <section id="form-section">
-      <form>
+      <form class="needs-validation" novalidate>
         <section class="mb-5">
           <div class="input-with-label">
             <label for="input-nisab" class="form-label"
               >Nisab Calculated on</label
             >
-            <select class="form-select" id="input-nisab">
+            <select class="form-select" id="input-nisab" name="nisab">
               <option value="silver" selected>Silver</option>
               <option value="gold">Gold</option>
             </select>
           </div>
-          <h4>Nisab Value: <span id="nisab-value"></span></h4>
         </section>
 
         <section class="mb-5">
@@ -46,12 +45,17 @@
           <div class="input-with-label">
             <label for="input-cash" class="form-label">Total cash</label>
             <div class="input-group">
-              <select class="form-select" id="input-cash-currency">
+              <select
+                class="form-select"
+                id="input-cash-currency"
+                name="currency"
+              >
                 <option value="aed" selected>AED</option>
-                <option value="$">$</option>
-                <option value="€">€</option>
+                <option value="usd">$</option>
+                <option value="eur">€</option>
               </select>
               <input
+                name="cash"
                 type="number"
                 class="form-control"
                 id="input-cash"
@@ -67,13 +71,14 @@
             <label for="input-gold" class="form-label">Gold</label>
             <div class="input-group">
               <input
+                name="gold"
                 type="number"
                 class="form-control"
                 id="input-gold"
                 placeholder="0.00"
                 min="0"
               />
-              <select class="form-select" id="input-gold-unit">
+              <select class="form-select" id="input-gold-unit" name="gold-unit">
                 <option value="g" selected>g</option>
                 <option value="kg">kg</option>
               </select>
@@ -83,13 +88,18 @@
             <label for="input-silver" class="form-label">Silver</label>
             <div class="input-group">
               <input
+                name="silver"
                 type="number"
                 class="form-control"
                 id="input-silver"
                 placeholder="0.00"
                 min="0"
               />
-              <select class="form-select" id="input-silver-unit">
+              <select
+                class="form-select"
+                id="input-silver-unit"
+                name="silver-unit"
+              >
                 <option value="g" selected>g</option>
                 <option value="kg">kg</option>
               </select>
@@ -103,6 +113,7 @@
             <label for="input-camel" class="form-label">Camel</label>
             <div>
               <input
+                name="camel"
                 type="number"
                 class="form-control"
                 id="input-camel"
@@ -117,6 +128,7 @@
             >
             <div>
               <input
+                name="cattle"
                 type="number"
                 class="form-control"
                 id="input-cattle"
@@ -129,6 +141,7 @@
             <label for="input-sheep" class="form-label">Sheep(w/ Goats)</label>
             <div>
               <input
+                name="sheep"
                 type="number"
                 class="form-control"
                 id="input-sheep"
@@ -145,13 +158,18 @@
             <label for="input-wheat" class="form-label">Wheat</label>
             <div class="input-group">
               <input
+                name="wheat"
                 type="number"
                 class="form-control"
                 id="input-wheat"
                 placeholder="0"
                 min="0"
               />
-              <select class="form-select" id="input-wheat-unit">
+              <select
+                class="form-select"
+                id="input-wheat-unit"
+                name="wheat-unit"
+              >
                 <option value="saa" selected>saa'</option>
                 <option value="wasq">wasq</option>
               </select>
@@ -161,13 +179,18 @@
             <label for="input-barley" class="form-label">Barley</label>
             <div class="input-group">
               <input
+                name="barley"
                 type="number"
                 class="form-control"
                 id="input-barley"
                 placeholder="0"
                 min="0"
               />
-              <select class="form-select" id="input-barley-unit">
+              <select
+                class="form-select"
+                id="input-barley-unit"
+                name="barley-unit"
+              >
                 <option value="saa" selected>saa'</option>
                 <option value="wasq">wasq</option>
               </select>
@@ -177,13 +200,18 @@
             <label for="input-dates" class="form-label">Dates</label>
             <div class="input-group">
               <input
+                name="dates"
                 type="number"
                 class="form-control"
                 id="input-dates"
                 placeholder="0"
                 min="0"
               />
-              <select class="form-select" id="input-dates-unit">
+              <select
+                class="form-select"
+                id="input-dates-unit"
+                name="dates-unit"
+              >
                 <option value="saa" selected>saa'</option>
                 <option value="wasq">wasq</option>
               </select>
@@ -193,13 +221,18 @@
             <label for="input-raisins" class="form-label">Raisins</label>
             <div class="input-group">
               <input
+                name="raisins"
                 type="number"
                 class="form-control"
                 id="input-raisins"
                 placeholder="0"
                 min="0"
               />
-              <select class="form-select" id="input-raisins-unit">
+              <select
+                class="form-select"
+                id="input-raisins-unit"
+                name="raisins-unit"
+              >
                 <option value="saa" selected>saa'</option>
                 <option value="wasq">wasq</option>
               </select>
@@ -214,10 +247,11 @@
               >Total value of goods</label
             >
             <input
+              name="goods"
               type="number"
               class="form-control"
               id="input-goods"
-              placeholder=""
+              placeholder="0"
             />
           </div>
         </section>
@@ -230,6 +264,7 @@
     </section>
 
     <script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
     <script type="module" src="./src/main.js"></script>
   </body>
 </html>

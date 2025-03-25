@@ -88,3 +88,8 @@ form {
 .form-select {
   max-width: fit-content;
 }
+
+select:valid {
+  padding: 0.375rem 2.25rem 0.375rem 0.75rem !important;
+  --bs-form-select-bg-icon: none !important; /* Remove icon */
+}

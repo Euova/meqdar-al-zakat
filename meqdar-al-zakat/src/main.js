@@ -1,17 +1,13 @@
 import $ from "jquery";
+import { handleFormSubmit } from "./form-validator";
+import { calculateZakat } from "./api-fetch";
 
-$("#input-nisab").on("change", () => {
-  let nisabValue = 0;
-  if ($("#input-nisab").val() == "gold") {
-    $.get("https://api.gold-api.com/price/XAU", function (data) {
-      nisabValue = data;
-      console.log(nisabValue);
-      $("#nisab-value").text(nisabValue.price);
-    });
-  } else if ($("#input-nisab").val() == "silver") {
-    $.get("https://api.gold-api.com/price/XAG", function (data) {
-      nisabValue = data;
-      $("#nisab-value").text(nisabValue.price);
-    });
+// $("#nisab-input").on("change", setNisabValue);
+
+$("form").on("submit", (e) => {
+  const formData = handleFormSubmit(e);
+
+  if (formData) {
+    calculateZakat(formData);
   }
 });
