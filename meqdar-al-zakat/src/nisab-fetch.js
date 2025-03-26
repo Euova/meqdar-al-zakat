@@ -1,5 +1,3 @@
-import $ from "jquery";
-
 // In grams
 const GOLD_NISAB_VALUE = 85;
 const SILVER_NISAB_VALUE = 595;
