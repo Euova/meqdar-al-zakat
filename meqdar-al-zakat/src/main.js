@@ -1,5 +1,5 @@
-import { handleFormSubmit } from "./form-validator";
-import { calculateZakat } from "./api-fetch";
+import { handleFormSubmit } from "./form-validator.js";
+import { calculateZakat } from "./api-fetch.js";
 
 // $("#nisab-input").on("change", setNisabValue);
 
