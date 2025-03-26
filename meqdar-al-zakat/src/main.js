@@ -1,6 +1,3 @@
-import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import "./style.css";
-
 import { handleFormSubmit } from "./form-validator";
 import { calculateZakat } from "./api-fetch";
 
