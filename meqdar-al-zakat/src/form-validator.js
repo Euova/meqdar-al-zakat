@@ -1,4 +1,4 @@
-import { getNisabValue } from "./nisab-fetch";
+import { getNisabValue } from "./nisab-fetch.js";
 
 export function handleFormSubmit(e) {
   const form = e.target; // Get form
