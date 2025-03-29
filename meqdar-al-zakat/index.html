@@ -32,7 +32,7 @@
             <label for="input-nisab" class="form-label"
               >Nisab Calculated on</label
             >
-            <select class="form-select" id="input-nisab" name="nisab">
+            <select class="form-select" id="input-nisab" name="nisabUnit">
               <option value="silver" selected>Silver</option>
               <option value="gold">Gold</option>
             </select>
@@ -60,6 +60,7 @@
                 id="input-cash"
                 placeholder="0.00"
                 min="0"
+                step="any"
               />
             </div>
           </div>
@@ -76,8 +77,9 @@
                 id="input-gold"
                 placeholder="0.00"
                 min="0"
+                step="any"
               />
-              <select class="form-select" id="input-gold-unit" name="gold-unit">
+              <select class="form-select" id="input-gold-unit" name="goldUnit">
                 <option value="g" selected>g</option>
                 <option value="kg">kg</option>
               </select>
@@ -93,11 +95,12 @@
                 id="input-silver"
                 placeholder="0.00"
                 min="0"
+                step="any"
               />
               <select
                 class="form-select"
                 id="input-silver-unit"
-                name="silver-unit"
+                name="silverUnit"
               >
                 <option value="g" selected>g</option>
                 <option value="kg">kg</option>
@@ -110,130 +113,226 @@
           <h3>Livestock</h3>
           <div class="input-with-label">
             <label for="input-camel" class="form-label">Camel</label>
-            <div>
-              <input
-                name="camel"
-                type="number"
-                class="form-control"
-                id="input-camel"
-                placeholder="0"
-                min="0"
-              />
-            </div>
+            <input
+              name="camel"
+              type="number"
+              class="form-control"
+              id="input-camel"
+              placeholder="0"
+              min="0"
+              step="1"
+            />
           </div>
           <div class="input-with-label">
             <label for="input-cattle" class="form-label"
               >Cattle (w/ Buffalo)</label
             >
-            <div>
-              <input
-                name="cattle"
-                type="number"
-                class="form-control"
-                id="input-cattle"
-                placeholder="0"
-                min="0"
-              />
-            </div>
+            <input
+              name="cattle"
+              type="number"
+              class="form-control"
+              id="input-cattle"
+              placeholder="0"
+              min="0"
+              step="1"
+            />
           </div>
           <div class="input-with-label">
-            <label for="input-sheep" class="form-label">Sheep(w/ Goats)</label>
-            <div>
-              <input
-                name="sheep"
-                type="number"
-                class="form-control"
-                id="input-sheep"
-                placeholder="0"
-                min="0"
-              />
-            </div>
+            <label for="input-sheep" class="form-label">Sheep (w/ Goats)</label>
+            <input
+              name="sheep"
+              type="number"
+              class="form-control"
+              id="input-sheep"
+              placeholder="0"
+              min="0"
+              step="1"
+            />
           </div>
         </section>
 
         <section class="mb-5">
           <h3>Crops and Fruits</h3>
-          <div class="input-with-label">
-            <label for="input-wheat" class="form-label">Wheat</label>
-            <div class="input-group">
-              <input
-                name="wheat"
-                type="number"
-                class="form-control"
-                id="input-wheat"
-                placeholder="0"
-                min="0"
-              />
+          <div class="crop-input">
+            <div class="input-with-label">
+              <label for="input-wheat" class="form-label">Wheat</label>
+              <div class="input-group">
+                <input
+                  name="wheat"
+                  type="number"
+                  class="form-control"
+                  id="input-wheat"
+                  placeholder="0"
+                  min="0"
+                  step="1"
+                />
+                <select
+                  class="form-select"
+                  id="input-wheat-unit"
+                  name="wheatUnit"
+                >
+                  <option value="saa" selected>saa'</option>
+                  <option value="wasq">wasq</option>
+                </select>
+              </div>
+            </div>
+            <div class="input-with-label">
+              <label for="wheat-irrigation" class="form-label"
+                >Method of Irrigation</label
+              >
               <select
                 class="form-select"
-                id="input-wheat-unit"
-                name="wheat-unit"
+                name="wheatIrrigation"
+                id="wheat-irrigation"
               >
-                <option value="saa" selected>saa'</option>
-                <option value="wasq">wasq</option>
+                <option value="1" selected>Not sure</option>
+                <option value="2">Without costs</option>
+                <option value="3">With costs</option>
+                <option value="4">With and without costs equally</option>
+                <option value="5">
+                  Costs is more benefecial than without costs
+                </option>
+                <option value="6">
+                  Without costs is more benefecial than with costs
+                </option>
               </select>
             </div>
           </div>
-          <div class="input-with-label">
-            <label for="input-barley" class="form-label">Barley</label>
-            <div class="input-group">
-              <input
-                name="barley"
-                type="number"
-                class="form-control"
-                id="input-barley"
-                placeholder="0"
-                min="0"
-              />
+
+          <div class="crop-input">
+            <div class="input-with-label">
+              <label for="input-barley" class="form-label">Barley</label>
+              <div class="input-group">
+                <input
+                  name="barley"
+                  type="number"
+                  class="form-control"
+                  id="input-barley"
+                  placeholder="0"
+                  min="0"
+                  step="1"
+                />
+                <select
+                  class="form-select"
+                  id="input-barley-unit"
+                  name="barleyUnit"
+                >
+                  <option value="saa" selected>saa'</option>
+                  <option value="wasq">wasq</option>
+                </select>
+              </div>
+            </div>
+            <div class="input-with-label">
+              <label for="barley-irrigation" class="form-label"
+                >Method of Irrigation</label
+              >
               <select
                 class="form-select"
-                id="input-barley-unit"
-                name="barley-unit"
+                name="barleyIrrigation"
+                id="barley-irrigation"
               >
-                <option value="saa" selected>saa'</option>
-                <option value="wasq">wasq</option>
+                <option value="1" selected>Not sure</option>
+                <option value="2">Without costs</option>
+                <option value="3">With costs</option>
+                <option value="4">With and without costs equally</option>
+                <option value="5">
+                  Costs is more benefecial than without costs
+                </option>
+                <option value="6">
+                  Without costs is more benefecial than with costs
+                </option>
               </select>
             </div>
           </div>
-          <div class="input-with-label">
-            <label for="input-dates" class="form-label">Dates</label>
-            <div class="input-group">
-              <input
-                name="dates"
-                type="number"
-                class="form-control"
-                id="input-dates"
-                placeholder="0"
-                min="0"
-              />
+
+          <div class="crop-input">
+            <div class="input-with-label">
+              <label for="input-dates" class="form-label">Dates</label>
+              <div class="input-group">
+                <input
+                  name="dates"
+                  type="number"
+                  class="form-control"
+                  id="input-dates"
+                  placeholder="0"
+                  min="0"
+                  step="1"
+                />
+                <select
+                  class="form-select"
+                  id="input-dates-unit"
+                  name="datesUnit"
+                >
+                  <option value="saa" selected>saa'</option>
+                  <option value="wasq">wasq</option>
+                </select>
+              </div>
+            </div>
+            <div class="input-with-label">
+              <label for="dates-irrigation" class="form-label"
+                >Method of Irrigation</label
+              >
               <select
                 class="form-select"
-                id="input-dates-unit"
-                name="dates-unit"
+                name="datesIrrigation"
+                id="dates-irrigation"
               >
-                <option value="saa" selected>saa'</option>
-                <option value="wasq">wasq</option>
+                <option value="1" selected>Not sure</option>
+                <option value="2">Without costs</option>
+                <option value="3">With costs</option>
+                <option value="4">With and without costs equally</option>
+                <option value="5">
+                  Costs is more benefecial than without costs
+                </option>
+                <option value="6">
+                  Without costs is more benefecial than with costs
+                </option>
               </select>
             </div>
           </div>
-          <div class="input-with-label">
-            <label for="input-raisins" class="form-label">Raisins</label>
-            <div class="input-group">
-              <input
-                name="raisins"
-                type="number"
-                class="form-control"
-                id="input-raisins"
-                placeholder="0"
-                min="0"
-              />
+
+          <div class="crop-input">
+            <div class="input-with-label">
+              <label for="input-raisins" class="form-label">Raisins</label>
+              <div class="input-group">
+                <input
+                  name="raisins"
+                  type="number"
+                  class="form-control"
+                  id="input-raisins"
+                  placeholder="0"
+                  min="0"
+                  step="1"
+                />
+                <select
+                  class="form-select"
+                  id="input-raisins-unit"
+                  name="raisinsUnit"
+                >
+                  <option value="saa" selected>saa'</option>
+                  <option value="wasq">wasq</option>
+                </select>
+              </div>
+            </div>
+            <div class="input-with-label">
+              <label for="raisins-irrigation" class="form-label"
+                >Method of Irrigation</label
+              >
               <select
                 class="form-select"
-                id="input-raisins-unit"
-                name="raisins-unit"
+                name="raisinsIrrigation"
+                id="raisins-irrigation"
               >
-                <option value="saa" selected>saa'</option>
-                <option value="wasq">wasq</option>
+                <option value="1" selected>Not sure</option>
+                <option value="2">Without costs</option>
+                <option value="3">With costs</option>
+                <option value="4">With and without costs equally</option>
+                <option value="5">
+                  Costs is more benefecial than without costs
+                </option>
+                <option value="6">
+                  Without costs is more benefecial than with costs
+                </option>
               </select>
             </div>
           </div>
@@ -250,7 +349,8 @@
               type="number"
               class="form-control"
               id="input-goods"
-              placeholder="0"
+              placeholder="0.00"
+              step="any"
             />
           </div>
         </section>

@@ -78,13 +78,22 @@ form {
   margin-bottom: 1vw;
 }
 
-.form-control,
-.input-group {
-  width: auto;
+.crop-input {
+  display: flex;
+  flex-direction: column;
 }
+
+.form-control,
+.input-group,
+.form-select {
+  /* width: auto; */
+  width: 40%;
+}
+
 .form-label {
   margin: 0;
 }
+
 .form-select {
   max-width: fit-content;
 }

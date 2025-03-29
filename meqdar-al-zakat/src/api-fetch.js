@@ -1,10 +1,16 @@
 export function calculateZakat(data) {
-  //   data = JSON.stringify(data);
-  //   $.post("url", data)
-  //     .done(function (responseData) {
-  //       console.log(responseData);
-  //     }, "json")
-  //     .fail(function (error) {
-  //       console.error(error);
-  //     });
+  data = JSON.stringify(data);
+  $.ajax({
+    url: import.meta.env.VITE_ZAKAT_CALCULATOR_ENDPOINT,
+    type: "POST",
+    contentType: "application/json",
+    data: data,
+    dataType: "json", // Expecting JSON in the response
+    success: function (responseData) {
+      console.log(responseData);
+    },
+    error: function (error) {
+      console.error(error);
+    },
+  });
 }

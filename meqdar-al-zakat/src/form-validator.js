@@ -1,5 +1,3 @@
-import { getNisabValue } from "./nisab-fetch.js";
-
 export function handleFormSubmit(e) {
   const form = e.target; // Get form
 
@@ -14,8 +12,7 @@ export function handleFormSubmit(e) {
     let formData = new FormData(form);
 
     formData = Object.fromEntries(formData.entries());
-    getNisabValue(formData.nisab).then((data) => console.log(data));
-    // if (getNisabValue(formData.nisab))
+
     Object.keys(formData).forEach((key) => {
       const value = formData[key];
 
@@ -23,7 +20,7 @@ export function handleFormSubmit(e) {
         formData[key] = "0"; // Update the value to "0" if it's an empty string after trimming
       }
     });
-
+    console.log(formData);
     return formData;
   }
   return null;
