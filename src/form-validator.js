@@ -20,7 +20,7 @@ export function handleFormSubmit(e) {
         formData[key] = "0"; // Update the value to "0" if it's an empty string after trimming
       }
     });
-    console.log(formData);
+
     return formData;
   }
   return null;
