@@ -130,6 +130,10 @@ select:valid {
   border-radius: 20px;
 }
 
+.livestock-result {
+  text-align: left;
+}
+
 #footer-section {
   color: white;
 }

@@ -7,6 +7,7 @@ export function handleFormSubmit(e) {
 
   if (!form.checkValidity()) {
     e.stopPropagation();
+    return null;
   } else {
     // Get form data and convert to JS object
     let formData = new FormData(form);
@@ -23,5 +24,4 @@ export function handleFormSubmit(e) {
 
     return formData;
   }
-  return null;
 }
