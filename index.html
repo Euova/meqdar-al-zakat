@@ -83,6 +83,15 @@
                 <option value="g" selected>g</option>
                 <option value="kg">kg</option>
               </select>
+              <select class="form-select" id="input-gold-unit" name="goldKarat">
+                <option value="24" selected>24K</option>
+                <option value="22">22K</option>
+                <option value="18">18K</option>
+                <option value="14">14K</option>
+                <option value="12">12K</option>
+                <option value="10">10K</option>
+                <option value="9">9K</option>
+              </select>
             </div>
           </div>
           <div class="input-with-label">
@@ -354,12 +363,103 @@
             />
           </div>
         </section>
-        <p>
-          maybe add a create button for trade goods where user can create his
-          own entry of trade goods so it shows in the summary
-        </p>
         <button class="btn btn-primary" type="submit">Caculate Zakat</button>
       </form>
+    </section>
+
+    <section id="footer-section">
+      <div class="container">
+        <footer class="pt-5">
+          <div class="row">
+            <div class="col-6 col-md-6 mb-3">
+              <h5>Zakat Payment Websites</h5>
+              <ul class="nav flex-column">
+                <li class="nav-item mb-2">
+                  <a
+                    href="https://www.zakatfund.gov.ae/zfp/web/Payment/PaymentForm.aspx"
+                    target="_blank"
+                    class="nav-link p-0 text-body-secondary"
+                    >ZakatFund</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-6 col-md-6 mb-3">
+              <h5>Calculation References</h5>
+              <ul class="nav flex-column">
+                <li class="nav-item mb-2">
+                  <a
+                    href="https://islamqa.info/en/answers/50801/zakah-on-savings"
+                    target="_blank"
+                    class="nav-link p-0 text-body-secondary"
+                    >Cash</a
+                  >
+                </li>
+
+                <li class="nav-item mb-2">
+                  <a
+                    href="https://islamqa.info/en/answers/214221/how-to-calculate-zakah-on-gold"
+                    target="_blank"
+                    class="nav-link p-0 text-body-secondary"
+                    >Gold</a
+                  >
+                </li>
+                <li class="nav-item mb-2">
+                  <a href="#" class="nav-link p-0 text-body-secondary"
+                    >Silver</a
+                  >
+                </li>
+                <li class="nav-item mb-2">
+                  <a
+                    href="https://islamqa.info/en/answers/71267/is-there-zakah-on-livestock"
+                    target="_blank"
+                    class="nav-link p-0 text-body-secondary"
+                  >
+                    Livestock
+                  </a>
+                </li>
+                <li class="nav-item mb-2">
+                  <a
+                    href="https://islamqa.info/en/answers/172973/zakah-on-agricultural-produce#:~:text=So%20each%20of%20them%20must,be%20paid%20on%20the%20harvest."
+                    target="_blank"
+                    class="nav-link p-0 text-body-secondary"
+                  >
+                    Crops and Fruits
+                  </a>
+                </li>
+                <li class="nav-item mb-2">
+                  <a href="#" class="nav-link p-0 text-body-secondary"
+                    >Trade Goods</a
+                  >
+                </li>
+                <li class="nav-item mb-2">
+                  <a
+                    href="https://islamqa.info/en/answers/144734/can-gold-be-added-to-silver-to-complete-the-nisaab"
+                    target="_blank"
+                    class="nav-link p-0 text-body-secondary"
+                    >Ruling on combining gold with silver</a
+                  >
+                </li>
+                <li class="nav-item mb-2">
+                  <a
+                    href="https://islamqa.info/en/answers/201807/can-cash-be-added-to-gold-and-silver-to-complete-the-nisaab"
+                    target="_blank"
+                    class="nav-link p-0 text-body-secondary"
+                    >Ruling on combining cash with gold/silver</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div
+            class="d-flex flex-column flex-sm-row justify-content-end py-4 my-4 border-top"
+          >
+            <p>Page Last Updated on:</p>
+          </div>
+        </footer>
+      </div>
     </section>
 
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>

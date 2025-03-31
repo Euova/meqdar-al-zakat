@@ -1,7 +1,8 @@
 export function calculateZakat(data) {
   data = JSON.stringify(data);
   $.ajax({
-    url: import.meta.env.VITE_ZAKAT_CALCULATOR_ENDPOINT,
+    url:
+      "http://localhost:8080" || import.meta.env.VITE_ZAKAT_CALCULATOR_ENDPOINT,
     type: "POST",
     contentType: "application/json",
     data: data,

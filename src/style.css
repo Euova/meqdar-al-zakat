@@ -7,6 +7,20 @@
 body {
   margin: 0;
   overflow-x: hidden;
+  background: radial-gradient(
+        27% 29% at right,
+        #0000 83%,
+        #367743 85% 99%,
+        #0000 101%
+      )
+      calc(16px / 2) 16px,
+    radial-gradient(27% 29% at left, #0000 83%, #367743 85% 99%, #0000 101%)
+      calc(16px / -2) 16px,
+    radial-gradient(29% 27% at top, #0000 83%, #367743 85% 99%, #0000 101%) 0
+      calc(16px / 2),
+    radial-gradient(29% 27% at bottom, #0000 83%, #367743 85% 99%, #0000 101%) 0
+      calc(16px / -2) #398147;
+  background-size: 32px 32px;
 }
 
 nav {
@@ -14,7 +28,8 @@ nav {
   justify-content: space-between;
   align-items: center;
   height: 20vh;
-  padding-bottom: 2vw;
+  /* padding-bottom: 2vw; */
+  margin-bottom: 2vw;
 
   background: radial-gradient(
         27% 29% at right,
@@ -57,6 +72,8 @@ nav {
 #form-section {
   display: flex;
   justify-content: center;
+  background-color: white;
+  border-radius: 1.5vw;
 }
 
 form {
@@ -101,4 +118,12 @@ form {
 select:valid {
   padding: 0.375rem 2.25rem 0.375rem 0.75rem !important;
   --bs-form-select-bg-icon: none !important; /* Remove icon */
+}
+
+#footer-section {
+  color: white;
+}
+
+#footer-section a {
+  color: rgba(255, 255, 255, 0.75) !important;
 }
