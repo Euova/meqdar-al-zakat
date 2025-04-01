@@ -1,21 +1,28 @@
 import { handleFormSubmit } from "./form-validator.js";
 import { calculateZakat } from "./api-fetch.js";
 import { displayResults } from "./result-display.js";
+import { importCurrencyList } from "./currencies-fetch.js";
 
-$("form").on("submit", async (e) => {
-  const formData = handleFormSubmit(e);
-  console.log(formData);
-  if (formData) {
-    try {
-      const zakatPayable = await calculateZakat(formData); // Await the result of calculateZakat
-      console.log(zakatPayable);
-      if (zakatPayable) {
-        displayResults(zakatPayable);
-      } else {
-        console.error("Error calculating zakat");
+// on document ready
+$(() => {
+  // import currency list into appropraite select inputs
+  importCurrencyList();
+
+  $("form").on("submit", async (e) => {
+    const formData = handleFormSubmit(e);
+    console.log(formData);
+    if (formData) {
+      try {
+        const zakatPayable = await calculateZakat(formData); // Await the result of calculateZakat
+        console.log(zakatPayable);
+        if (zakatPayable) {
+          displayResults(zakatPayable);
+        } else {
+          console.error("Error calculating zakat");
+        }
+      } catch (error) {
+        console.error("Error calculating zakat:", error);
       }
-    } catch (error) {
-      console.error("Error calculating zakat:", error);
     }
-  }
+  });
 });
