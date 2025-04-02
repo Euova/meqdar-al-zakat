@@ -3,17 +3,31 @@ import { calculateZakat } from "./api-fetch.js";
 import { displayResults } from "./result-display.js";
 import { importCurrencyList } from "./currencies-fetch.js";
 
-function initializePage() {
+async function initializePage() {
   // Import currency list into appropraite select inputs
-  importCurrencyList();
+  await importCurrencyList();
+
+  // Sync the cash currency with goods currency
+  syncTradeGoodsCurrency();
 
   // Hide result section
   $("#result-section").hide();
 }
 
+function syncTradeGoodsCurrency() {
+  var selectedText = $("#input-cash-currency option:selected").text(); // Get the text of the selected option
+
+  // Empty input-goods-currency and add the selected option from input-cash-currency
+  $("#input-goods-currency").empty().append(new Option(selectedText));
+}
+
 // On document ready
 $(() => {
   initializePage();
+
+  $("#input-cash-currency").on("change", () => {
+    syncTradeGoodsCurrency();
+  });
 
   $("form").on("submit", async (e) => {
     const formData = handleFormSubmit(e);

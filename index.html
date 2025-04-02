@@ -345,18 +345,26 @@
 
         <section class="mb-5">
           <h3>Trade Goods</h3>
+
           <div class="input-with-label">
             <label for="input-goods" class="form-label"
               >Total value of goods</label
             >
-            <input
-              name="goods"
-              type="number"
-              class="form-control"
-              id="input-goods"
-              placeholder="0.00"
-              step="any"
-            />
+            <div class="input-group">
+              <select
+                class="form-select"
+                id="input-goods-currency"
+                disabled
+              ></select>
+              <input
+                name="goods"
+                type="number"
+                class="form-control"
+                id="input-goods"
+                placeholder="0.00"
+                step="any"
+              />
+            </div>
           </div>
         </section>
         <button class="btn btn-primary" type="submit">Caculate Zakat</button>
@@ -452,11 +460,11 @@
             <div class="row">
               <div class="col mb-3">
                 <h5>Total Assets</h5>
-                <p class="p-0 text-body-secondary">2 wasq</p>
+                <p class="p-0 text-body-secondary" id="result-goods-total"></p>
               </div>
               <div class="col mb-3">
                 <h5>Total Zakat Payable</h5>
-                <p class="p-0 text-body-secondary">2 wasq</p>
+                <p class="p-0 text-body-secondary" id="result-goods-zakat"></p>
               </div>
             </div>
           </div>
@@ -468,7 +476,7 @@
       <div class="container">
         <footer class="pt-5">
           <div class="row">
-            <div class="col-6 col-md-6 mb-3">
+            <div class="col col mb-3">
               <h5>Zakat Payment Websites</h5>
               <ul class="nav flex-column">
                 <li class="nav-item mb-2">
@@ -482,9 +490,18 @@
               </ul>
             </div>
 
-            <div class="col-6 col-md-6 mb-3">
+            <div class="col col mb-3">
               <h5>Calculation References</h5>
               <ul class="nav flex-column">
+                <li class="nav-item mb-2">
+                  <a
+                    href="https://islamqa.info/en/answers/2795/what-is-the-nisab-on-paper-money"
+                    target="_blank"
+                    class="nav-link p-0 text-body-secondary"
+                    >Nisab on Cash</a
+                  >
+                </li>
+
                 <li class="nav-item mb-2">
                   <a
                     href="https://islamqa.info/en/answers/50801/zakah-on-savings"
@@ -503,7 +520,10 @@
                   >
                 </li>
                 <li class="nav-item mb-2">
-                  <a href="#" class="nav-link p-0 text-body-secondary"
+                  <a
+                    href="https://islamqa.info/en/answers/64/minimum-amount-nisab-required-to-pay-zakat-in-dollars"
+                    target="_blank"
+                    class="nav-link p-0 text-body-secondary"
                     >Silver</a
                   >
                 </li>
@@ -526,7 +546,9 @@
                   </a>
                 </li>
                 <li class="nav-item mb-2">
-                  <a href="#" class="nav-link p-0 text-body-secondary"
+                  <a
+                    href="https://islamqa.info/en/answers/50726/zakah-on-trade-goods-and-shop-fittings"
+                    class="nav-link p-0 text-body-secondary"
                     >Trade Goods</a
                   >
                 </li>
@@ -544,6 +566,28 @@
                     target="_blank"
                     class="nav-link p-0 text-body-secondary"
                     >Ruling on combining cash with gold/silver</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div class="col col mb-3">
+              <h5>Additional Resources</h5>
+              <ul class="nav flex-column">
+                <li class="nav-item mb-2">
+                  <a
+                    href="https://islamqa.info/en/answers/49632/the-difference-between-zakah-on-wealth-and-zakat-al-fitr"
+                    target="_blank"
+                    class="nav-link p-0 text-body-secondary"
+                    >Types of Zakat</a
+                  >
+                </li>
+                <li class="nav-item mb-2">
+                  <a
+                    href="https://islamqa.info/en/answers/46209/categories-of-zakah-recipients"
+                    target="_blank"
+                    class="nav-link p-0 text-body-secondary"
+                    >Zakah Recipients</a
                   >
                 </li>
               </ul>
