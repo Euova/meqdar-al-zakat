@@ -1,10 +1,16 @@
-function fillMoneyResultBox(cashZakat, goldZakat, silverZakat) {
-  const totalZakat = cashZakat + goldZakat + silverZakat;
-  $("#result-money-total").text();
-  $("#result-cash").text(cashZakat.toFixed(2));
-  $("#result-gold").text(goldZakat.toFixed(2));
-  $("#result-silver").text(silverZakat.toFixed(2));
-  $("#result-money-zakat").text(totalZakat.toFixed(2));
+function fillMoneyResultBox(
+  totalAssets,
+  cashZakat,
+  goldZakat,
+  silverZakat,
+  totalZakat,
+  moneyTextFormat
+) {
+  $("#result-money-total").text(moneyTextFormat.format(totalAssets));
+  $("#result-cash").text(moneyTextFormat.format(cashZakat));
+  $("#result-gold").text(moneyTextFormat.format(goldZakat));
+  $("#result-silver").text(moneyTextFormat.format(silverZakat));
+  $("#result-money-zakat").text(moneyTextFormat.format(totalZakat));
 }
 
 function fillLivestockResultBox(camelZakat, cattleZakat, sheepZakat) {
@@ -38,11 +44,21 @@ function fillCropsResultBox(wheatZakat, barleyZakat, datesZakat, raisinsZakat) {
 }
 
 export function displayResults(zakatPayable) {
+  const moneyTextFormat = new Intl.NumberFormat(undefined, {
+    style: "currency",
+    currency: zakatPayable.money.currency.toUpperCase(),
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
+
   // Money Result Box
   fillMoneyResultBox(
+    zakatPayable.money.totalAssets,
     zakatPayable.money.cash,
     zakatPayable.money.gold,
-    zakatPayable.money.silver
+    zakatPayable.money.silver,
+    zakatPayable.money.totalZakat,
+    moneyTextFormat
   );
 
   fillLivestockResultBox(
