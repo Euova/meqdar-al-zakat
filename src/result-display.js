@@ -43,13 +43,20 @@ function fillCropsResultBox(wheatZakat, barleyZakat, datesZakat, raisinsZakat) {
   $("#result-raisins").text(raisinsZakat);
 }
 
-export function displayResults(zakatPayable) {
+function scrollToResults(resultSection, offset = 40) {
+  $("html, body").scrollTop(resultSection.offset().top - offset);
+}
+
+export function displayResults(zakatPayable, resultSection) {
   const moneyTextFormat = new Intl.NumberFormat(undefined, {
     style: "currency",
     currency: zakatPayable.money.currency.toUpperCase(),
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   });
+
+  resultSection.show();
+  scrollToResults(resultSection);
 
   // Money Result Box
   fillMoneyResultBox(
