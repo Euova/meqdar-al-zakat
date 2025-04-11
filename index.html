@@ -42,6 +42,236 @@
         <div id="google_translate_element"></div>
       </div>
     </div>
+    <!-- Button trigger modal -->
+    <button
+      type="button"
+      class="btn btn-secondary"
+      id="instruction-btn"
+      data-bs-toggle="modal"
+      data-bs-target="#instructions-modal"
+    >
+      View Instructions
+    </button>
+
+    <!-- Vertically centered scrollable large modal -->
+    <div
+      class="modal fade"
+      id="instructions-modal"
+      tabindex="-1"
+      aria-labelledby="instructions-modal"
+      aria-hidden="true"
+    >
+      <div
+        class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg"
+      >
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="instructions-modal">
+              Instructions
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <h4>Welcome to Meqdar Al Zakat!</h4>
+            <p>
+              Meqdar Al Zakat is an intuitive and user-friendly online tool
+              designed to help Muslims accurately calculate their Zakat
+              obligations with ease. The website features a simple and
+              straightforward interface where users can enter their assets into
+              clearly labeled input fields, including cash, gold, silver,
+              business assets, investments, and livestock. The system instantly
+              calculates the total Zakat due based on the current Nisab
+              threshold and standard Zakat rates. Please follow the instructions
+              below to get started:
+            </p>
+
+            <h5>How to Use Meqdar Al Zakat:</h5>
+
+            <ol>
+              <li class="mb-2">
+                <strong>Nisab (Zakat Threshold):</strong> is the minimum amount
+                of wealth that you must have before being obliged to pay zakat.
+                It is calculated by finding the market value of 85g of gold or
+                595g of silver. Calculating the nisab based on
+                <a
+                  href="https://islamqa.info/en/answers/370380/is-the-nisab-for-paper-money-based-on-silver-or-gold"
+                  target="_blank"
+                  >silver is more beneficial to the poor</a
+                >
+                as it is a lower threshold, allowing more people to be eligible
+                for zakat. Select your <strong>Nisab</strong> from the dropdown.
+                Choose one of the following:
+                <ul>
+                  <li>Silver</li>
+                  <li>Gold</li>
+                </ul>
+              </li>
+              <li class="mb-2">
+                <strong>Total Cash:</strong> enter your
+                <strong>total cash</strong> in your preferred currency. This
+                includes all the cash you own such as savings, checking
+                accounts, wallets, or any other cash in hand. The cash nisab
+                will depend on what nisab you choose (silver or gold). The cash
+                zakat rate is 2.5%.
+              </li>
+              <li class="mb-2">
+                <strong>Gold:</strong> enter the total weight of your
+                <strong>gold</strong> (in grams or kg) and its purity (e.g.,
+                24k, 22k, etc.). The
+                <a
+                  href="https://islamqa.info/en/answers/59866/zakah-on-jewellery-that-has-been-prepared-for-use"
+                  target="_blank"
+                  >more correct view</a
+                >
+                is that zakat is due on all gold, even personal jewelry. The
+                gold nisab is 85g of 24 karat gold. The gold zakat rate is 2.5%.
+              </li>
+              <li class="mb-2">
+                <strong>Silver:</strong> enter the total weight of your
+                <strong>silver</strong> (in grams or kg). The
+                <a
+                  href="https://islamqa.info/en/answers/59866/zakah-on-jewellery-that-has-been-prepared-for-use"
+                  target="_blank"
+                  >more correct view</a
+                >
+                is that zakat is due on all silver, even personal jewelry. The
+                silver nisab is 595g of silver. The silver zakat rate is 2.5%.
+              </li>
+              <li class="mb-2">
+                <strong>Camel:</strong> enter the number of
+                <a
+                  href="https://islamqa.info/en/answers/40156/there-is-no-zakah-on-anaam-animals-unless-they-graze-on-pasture-with-no-expenditure-on-their-food"
+                  target="_blank"
+                  >grazing</a
+                >
+                camels you own. These are camels that feed on natural pasture
+                and are not used for work or given regular feed. The camel nisab
+                is 5 camels. The camel zakat rate varies as it changes with how
+                many camels you own.
+              </li>
+              <li class="mb-2">
+                <strong>Cattle:</strong> Enter the number of
+                <a
+                  href="https://islamqa.info/en/answers/40156/there-is-no-zakah-on-anaam-animals-unless-they-graze-on-pasture-with-no-expenditure-on-their-food"
+                  target="_blank"
+                  >grazing</a
+                >
+                cattles (including buffalos) you own. These are cattles that
+                feed on natural pasture and are not used for work or given
+                regular feed. The cattle nisab is 30 cattles. The cattle zakat
+                rate varies as it changes with how many cattles you own.
+              </li>
+              <li class="mb-2">
+                <strong>Sheep:</strong> Enter the number of
+                <a
+                  href="https://islamqa.info/en/answers/40156/there-is-no-zakah-on-anaam-animals-unless-they-graze-on-pasture-with-no-expenditure-on-their-food"
+                  target="_blank"
+                  >grazing</a
+                >
+                sheep (including goats) you own. These are sheep that feed on
+                natural pasture and are not used for work or given regular feed.
+                The cattle nisab is 40 sheep. The sheep zakat rate varies as it
+                changes with how many sheep you own.
+              </li>
+              <li class="mb-2">
+                <strong>Crops and Fruits:</strong> enter the amount of crops and
+                fruits (wheat, barley, dates, raisins) you harvest, measured in
+                saa’ or wasq. 1 saa’ = 4 cupped hands of a man of average build.
+                1 wasq = 60 saa’. The crop and fruits nisab is 300 saa' or 5
+                wasq.
+                <ul>
+                  <li>
+                    <strong>Method of Irrigation:</strong> select how the crops
+                    were watered. ‘With extra costs’ means using mechanical
+                    means to lift up the water like pipes. ‘Without extra costs’
+                    means natural sources like rainwater or springs.
+                    <a
+                      href="https://islamqa.info/en/answers/172973/zakah-on-agricultural-produce"
+                      target="_blank"
+                      >The way crops are irrigated determines the zakat rate on
+                      them:</a
+                    >
+                    <ol>
+                      <li><strong>Not sure:</strong> 10%</li>
+                      <li><strong>Without costs:</strong> 10%</li>
+                      <li><strong>With costs:</strong> 5%</li>
+                      <li>
+                        <strong>With and without costs equally:</strong> 7.5%
+                      </li>
+                      <li>
+                        <strong
+                          >Costs is more benefecial than without costs:</strong
+                        >
+                        5%
+                      </li>
+                      <li>
+                        <strong
+                          >Without costs is more benefecial than with
+                          costs:</strong
+                        >
+                        10%
+                      </li>
+                    </ol>
+                  </li>
+                </ul>
+              </li>
+              <li class="mb-2">
+                <strong>Trade Goods:</strong> enter the total current market
+                selling value of all trade goods you own. Trade goods are goods
+                prepared for sale (e.g., real estate, clothing, food, other
+                kinds of goods that are sold). Fixtures not for sale are not
+                subject to zakat. Zakat is based on the current selling price,
+                not the purchase price. It can be paid in kind or cash. The
+                trade goods zakat rate is 2.5%.
+              </li>
+            </ol>
+
+            <h5>Submitting Your Data:</h5>
+            <p>
+              Once you have filled in all the necessary information, click the
+              <strong>"Calculate Zakat"</strong> button. The website will
+              process your data and provide you with the zakat calculations for
+              each zakat category based on the information you entered.
+            </p>
+
+            <h5>Important Notes:</h5>
+            <ul>
+              <li>
+                Ensure all fields are filled out correctly to get the most
+                accurate result.
+              </li>
+              <li>
+                If any field is invalid, the form will not submit until the data
+                is corrected.
+              </li>
+              <li>
+                The calculator is in the process of getting its calculations
+                authorized.
+              </li>
+            </ul>
+
+            <h5>Need Help?</h5>
+            <p>
+              If you have any questions about how to use Meqdar Al Zakat, feel
+              free to check out this guide or reach out to our support team for
+              assistance.
+            </p>
+
+            <h5>References</h5>
+            <p>
+              All content and calcuations provided in this website are based on
+              authentic references through IslamQA and a local imam. Please
+              navigate to the footer to view the references.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <section id="form-section">
       <form class="needs-validation" novalidate>
@@ -116,7 +346,7 @@
                 data-bs-toggle="popover"
                 data-bs-trigger="hover focus"
                 data-bs-title="Gold - Nisab: 85g"
-                data-bs-content="Enter the total weight of your gold (in grams or kg) and its purity (e.g., 24k, 22k, etc.). The strongest opinion is that zakat is due on all gold, even personal jewelry."
+                data-bs-content="Enter the total weight of your gold (in grams or kg) and its purity (e.g., 24k, 22k, etc.). The more correct view is that zakat is due on all gold, even personal jewelry."
               >
                 <i class="bi bi-info-circle info-circle"></i>
               </span>
@@ -156,7 +386,7 @@
                 data-bs-toggle="popover"
                 data-bs-trigger="hover focus"
                 data-bs-title="Silver - Nisab: 595g"
-                data-bs-content="Enter the total weight of your silver (in grams or kg). The strongest opinion is that zakat is due on all silver, even personal jewelry."
+                data-bs-content="Enter the total weight of your silver (in grams or kg). The more correct view is that zakat is due on all silver, even personal jewelry."
               >
                 <i class="bi bi-info-circle info-circle"></i>
               </span>
@@ -194,7 +424,7 @@
                 tabindex="0"
                 data-bs-toggle="popover"
                 data-bs-trigger="hover focus"
-                data-bs-title="Camel - Nisab: 5"
+                data-bs-title="Camel - Nisab: 5 camels"
                 data-bs-content="Enter the number of grazing camels you own. These are camels that feed on natural pasture and are not used for work or given regular feed."
               >
                 <i class="bi bi-info-circle info-circle"></i>
@@ -223,7 +453,7 @@
                 tabindex="0"
                 data-bs-toggle="popover"
                 data-bs-trigger="hover focus"
-                data-bs-title="Cattle - Nisab: 30"
+                data-bs-title="Cattle - Nisab: 30 cattles"
                 data-bs-content="Enter the number of grazing cattles (including buffalos) you own. These are cattles that feed on natural pasture and are not used for work or given regular feed."
               >
                 <i class="bi bi-info-circle info-circle"></i>
@@ -252,7 +482,7 @@
                 tabindex="0"
                 data-bs-toggle="popover"
                 data-bs-trigger="hover focus"
-                data-bs-title="Sheep - Nisab: 40"
+                data-bs-title="Sheep - Nisab: 40 sheep"
                 data-bs-content="Enter the number of grazing sheep (including goats) you own. These are sheep that feed on natural pasture and are not used for work or given regular feed."
               >
                 <i class="bi bi-info-circle info-circle"></i>
@@ -829,7 +1059,7 @@
                     href="https://islamqa.info/en/answers/46209/categories-of-zakah-recipients"
                     target="_blank"
                     class="nav-link p-0 text-body-secondary"
-                    >Zakah Recipients</a
+                    >Zakat Recipients</a
                   >
                 </li>
               </ul>

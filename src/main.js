@@ -4,6 +4,9 @@ import { displayResults } from "./result-display.js";
 import { importCurrencyList } from "./currencies-fetch.js";
 
 async function initializePage() {
+  // Load instructions set when user enters webpage
+  $("#instruction-btn").trigger("click");
+
   // Enable Bootstrap popovers
   const popoverTriggerList = document.querySelectorAll(
     '[data-bs-toggle="popover"]'
