@@ -30,7 +30,7 @@ function filterCurrencies(currencies) {
 export function fetchCurrencies() {
   return new Promise((resolve, reject) => {
     $.ajax({
-      url: import.meta.env.VITE_CURRENCIES_ENDPOINT,
+      url: "https://openexchangerates.org/api/currencies.json",
       type: "GET",
       dataType: "json", // Expecting JSON in the response
       success: function (responseData) {

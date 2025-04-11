@@ -29,9 +29,22 @@
       <form class="needs-validation" novalidate>
         <section class="mb-5">
           <div class="input-with-label">
-            <label for="input-nisab" class="form-label"
-              >Nisab Calculated on</label
-            >
+            <div>
+              <label for="input-nisab" class="form-label"
+                >Nisab Calculated on
+              </label>
+              <span
+                class="d-inline-block"
+                tabindex="0"
+                data-bs-toggle="popover"
+                data-bs-trigger="hover focus"
+                data-bs-title="Nisab (Zakat Threshold)"
+                data-bs-content="Choose whether to calculate the nisab (zakat threshold) based on the current value of gold or silver. Currently silver has a lower threshold, so more people may qualify to pay zakat which is more beneficial to the poor."
+              >
+                <i class="bi bi-info-circle info-circle"></i>
+              </span>
+            </div>
+
             <select class="form-select" id="input-nisab" name="nisabUnit">
               <option value="silver" selected>Silver</option>
               <option value="gold">Gold</option>
@@ -42,7 +55,19 @@
         <section class="mb-5">
           <h3>Cash</h3>
           <div class="input-with-label">
-            <label for="input-cash" class="form-label">Total cash</label>
+            <div>
+              <label for="input-cash" class="form-label">Total cash</label>
+              <span
+                class="d-inline-block"
+                tabindex="0"
+                data-bs-toggle="popover"
+                data-bs-trigger="hover focus"
+                data-bs-title="Total Cash"
+                data-bs-content="Enter all the cash you own — savings, checking accounts, wallets, or any other cash in hand — in your preferred currency."
+              >
+                <i class="bi bi-info-circle info-circle"></i>
+              </span>
+            </div>
             <div class="input-group">
               <select
                 class="form-select input-currency"
@@ -64,7 +89,19 @@
         <section class="mb-5">
           <h3>Gold and Silver</h3>
           <div class="input-with-label">
-            <label for="input-gold" class="form-label">Gold</label>
+            <div>
+              <label for="input-gold" class="form-label">Gold</label>
+              <span
+                class="d-inline-block"
+                tabindex="0"
+                data-bs-toggle="popover"
+                data-bs-trigger="hover focus"
+                data-bs-title="Gold - Nisab: 85g"
+                data-bs-content="Enter the total weight of your gold (in grams or kg) and its purity (e.g., 24k, 22k, etc.). The strongest opinion is that zakat is due on all gold, even personal jewelry."
+              >
+                <i class="bi bi-info-circle info-circle"></i>
+              </span>
+            </div>
             <div class="input-group">
               <input
                 name="gold"
@@ -91,7 +128,19 @@
             </div>
           </div>
           <div class="input-with-label">
-            <label for="input-silver" class="form-label">Silver</label>
+            <div>
+              <label for="input-silver" class="form-label">Silver</label>
+              <span
+                class="d-inline-block"
+                tabindex="0"
+                data-bs-toggle="popover"
+                data-bs-trigger="hover focus"
+                data-bs-title="Silver - Nisab: 595g"
+                data-bs-content="Enter the total weight of your silver (in grams or kg). The strongest opinion is that zakat is due on all silver, even personal jewelry."
+              >
+                <i class="bi bi-info-circle info-circle"></i>
+              </span>
+            </div>
             <div class="input-group">
               <input
                 name="silver"
@@ -117,7 +166,19 @@
         <section class="mb-5">
           <h3>Livestock</h3>
           <div class="input-with-label">
-            <label for="input-camel" class="form-label">Camel</label>
+            <div>
+              <label for="input-camel" class="form-label">Camel</label>
+              <span
+                class="d-inline-block"
+                tabindex="0"
+                data-bs-toggle="popover"
+                data-bs-trigger="hover focus"
+                data-bs-title="Camel - Nisab: 5"
+                data-bs-content="Enter the number of grazing camels you own. These are camels that feed on natural pasture and are not used for work or given regular feed."
+              >
+                <i class="bi bi-info-circle info-circle"></i>
+              </span>
+            </div>
             <input
               name="camel"
               type="number"
@@ -129,9 +190,19 @@
             />
           </div>
           <div class="input-with-label">
-            <label for="input-cattle" class="form-label"
-              >Cattle (w/ Buffalo)</label
-            >
+            <div>
+              <label for="input-cattle" class="form-label">Cattle</label>
+              <span
+                class="d-inline-block"
+                tabindex="0"
+                data-bs-toggle="popover"
+                data-bs-trigger="hover focus"
+                data-bs-title="Cattle - Nisab: 30"
+                data-bs-content="Enter the number of grazing cattles (including buffalos) you own. These are cattles that feed on natural pasture and are not used for work or given regular feed."
+              >
+                <i class="bi bi-info-circle info-circle"></i>
+              </span>
+            </div>
             <input
               name="cattle"
               type="number"
@@ -143,7 +214,19 @@
             />
           </div>
           <div class="input-with-label">
-            <label for="input-sheep" class="form-label">Sheep (w/ Goats)</label>
+            <div>
+              <label for="input-sheep" class="form-label">Sheep</label>
+              <span
+                class="d-inline-block"
+                tabindex="0"
+                data-bs-toggle="popover"
+                data-bs-trigger="hover focus"
+                data-bs-title="Sheep - Nisab: 40"
+                data-bs-content="Enter the number of grazing sheep (including goats) you own. These are sheep that feed on natural pasture and are not used for work or given regular feed."
+              >
+                <i class="bi bi-info-circle info-circle"></i>
+              </span>
+            </div>
             <input
               name="sheep"
               type="number"
@@ -160,7 +243,19 @@
           <h3>Crops and Fruits</h3>
           <div class="crop-input">
             <div class="input-with-label">
-              <label for="input-wheat" class="form-label">Wheat</label>
+              <div>
+                <label for="input-wheat" class="form-label">Wheat</label>
+                <span
+                  class="d-inline-block"
+                  tabindex="0"
+                  data-bs-toggle="popover"
+                  data-bs-trigger="hover focus"
+                  data-bs-title="Wheat - Nisab: 300 saa'/5 wasq"
+                  data-bs-content="Enter the amount of wheat you harvest, measured in saa’ or wasq. 1 saa’ = 4 cupped hands of a man of average build. 1 wasq = 60 saa’."
+                >
+                  <i class="bi bi-info-circle info-circle"></i>
+                </span>
+              </div>
               <div class="input-group">
                 <input
                   name="wheat"
@@ -182,9 +277,21 @@
               </div>
             </div>
             <div class="input-with-label">
-              <label for="wheat-irrigation" class="form-label"
-                >Method of Irrigation</label
-              >
+              <div>
+                <label for="wheat-irrigation" class="form-label"
+                  >Method of Irrigation</label
+                >
+                <span
+                  class="d-inline-block"
+                  tabindex="0"
+                  data-bs-toggle="popover"
+                  data-bs-trigger="hover focus"
+                  data-bs-title="Method of Irrigation"
+                  data-bs-content="Select how the crops were watered. ‘With extra costs’ means using mechanical means to lift up the water like pipes. ‘Without extra costs’ means natural sources like rainwater or springs."
+                >
+                  <i class="bi bi-info-circle info-circle"></i>
+                </span>
+              </div>
               <select
                 class="form-select"
                 name="wheatIrrigation"
@@ -206,7 +313,19 @@
 
           <div class="crop-input">
             <div class="input-with-label">
-              <label for="input-barley" class="form-label">Barley</label>
+              <div>
+                <label for="input-barley" class="form-label">Barley</label>
+                <span
+                  class="d-inline-block"
+                  tabindex="0"
+                  data-bs-toggle="popover"
+                  data-bs-trigger="hover focus"
+                  data-bs-title="Barley - Nisab: 300 saa'/5 wasq"
+                  data-bs-content="Enter the amount of barley you harvest, measured in saa’ or wasq. 1 saa’ = 4 cupped hands of a man of average build. 1 wasq = 60 saa’."
+                >
+                  <i class="bi bi-info-circle info-circle"></i>
+                </span>
+              </div>
               <div class="input-group">
                 <input
                   name="barley"
@@ -228,9 +347,21 @@
               </div>
             </div>
             <div class="input-with-label">
-              <label for="barley-irrigation" class="form-label"
-                >Method of Irrigation</label
-              >
+              <div>
+                <label for="barley-irrigation" class="form-label"
+                  >Method of Irrigation</label
+                >
+                <span
+                  class="d-inline-block"
+                  tabindex="0"
+                  data-bs-toggle="popover"
+                  data-bs-trigger="hover focus"
+                  data-bs-title="Method of Irrigation"
+                  data-bs-content="Select how the crops were watered. ‘With extra costs’ means using mechanical means to lift up the water like pipes. ‘Without extra costs’ means natural sources like rainwater or springs."
+                >
+                  <i class="bi bi-info-circle info-circle"></i>
+                </span>
+              </div>
               <select
                 class="form-select"
                 name="barleyIrrigation"
@@ -252,7 +383,19 @@
 
           <div class="crop-input">
             <div class="input-with-label">
-              <label for="input-dates" class="form-label">Dates</label>
+              <div>
+                <label for="input-dates" class="form-label">Dates</label>
+                <span
+                  class="d-inline-block"
+                  tabindex="0"
+                  data-bs-toggle="popover"
+                  data-bs-trigger="hover focus"
+                  data-bs-title="Dates - Nisab: 300 saa'/5 wasq"
+                  data-bs-content="Enter the amount of dates you harvest, measured in saa’ or wasq. 1 saa’ = 4 cupped hands of a man of average build. 1 wasq = 60 saa’."
+                >
+                  <i class="bi bi-info-circle info-circle"></i>
+                </span>
+              </div>
               <div class="input-group">
                 <input
                   name="dates"
@@ -274,9 +417,21 @@
               </div>
             </div>
             <div class="input-with-label">
-              <label for="dates-irrigation" class="form-label"
-                >Method of Irrigation</label
-              >
+              <div>
+                <label for="dates-irrigation" class="form-label"
+                  >Method of Irrigation</label
+                >
+                <span
+                  class="d-inline-block"
+                  tabindex="0"
+                  data-bs-toggle="popover"
+                  data-bs-trigger="hover focus"
+                  data-bs-title="Method of Irrigation"
+                  data-bs-content="Select how the crops were watered. ‘With extra costs’ means using mechanical means to lift up the water like pipes. ‘Without extra costs’ means natural sources like rainwater or springs."
+                >
+                  <i class="bi bi-info-circle info-circle"></i>
+                </span>
+              </div>
               <select
                 class="form-select"
                 name="datesIrrigation"
@@ -298,7 +453,19 @@
 
           <div class="crop-input">
             <div class="input-with-label">
-              <label for="input-raisins" class="form-label">Raisins</label>
+              <div>
+                <label for="input-raisins" class="form-label">Raisins</label>
+                <span
+                  class="d-inline-block"
+                  tabindex="0"
+                  data-bs-toggle="popover"
+                  data-bs-trigger="hover focus"
+                  data-bs-title="Raisins - Nisab: 300 saa'/5 wasq"
+                  data-bs-content="Enter the amount of raisins you harvest, measured in saa’ or wasq. 1 saa’ = 4 cupped hands of a man of average build. 1 wasq = 60 saa’."
+                >
+                  <i class="bi bi-info-circle info-circle"></i>
+                </span>
+              </div>
               <div class="input-group">
                 <input
                   name="raisins"
@@ -320,9 +487,21 @@
               </div>
             </div>
             <div class="input-with-label">
-              <label for="raisins-irrigation" class="form-label"
-                >Method of Irrigation</label
-              >
+              <div>
+                <label for="raisins-irrigation" class="form-label"
+                  >Method of Irrigation</label
+                >
+                <span
+                  class="d-inline-block"
+                  tabindex="0"
+                  data-bs-toggle="popover"
+                  data-bs-trigger="hover focus"
+                  data-bs-title="Method of Irrigation"
+                  data-bs-content="Select how the crops were watered. ‘With extra costs’ means using mechanical means to lift up the water like pipes. ‘Without extra costs’ means natural sources like rainwater or springs."
+                >
+                  <i class="bi bi-info-circle info-circle"></i>
+                </span>
+              </div>
               <select
                 class="form-select"
                 name="raisinsIrrigation"
@@ -347,9 +526,21 @@
           <h3>Trade Goods</h3>
 
           <div class="input-with-label">
-            <label for="input-goods" class="form-label"
-              >Total value of goods</label
-            >
+            <div>
+              <label for="input-goods" class="form-label"
+                >Total value of goods</label
+              >
+              <span
+                class="d-inline-block"
+                tabindex="0"
+                data-bs-toggle="popover"
+                data-bs-trigger="hover focus"
+                data-bs-title="Trade Goods"
+                data-bs-content="Enter the total current market selling value of all trade goods you own. Trade goods are goods prepared for sale (e.g., real estate, clothing, food, other kinds of goods that are sold). Fixtures not for sale are not subject to zakat. Zakat is based on the current selling price, not the purchase price. It can be paid in kind or cash."
+              >
+                <i class="bi bi-info-circle info-circle"></i>
+              </span>
+            </div>
             <div class="input-group">
               <select
                 class="form-select"
@@ -549,6 +740,7 @@
                   <a
                     href="https://islamqa.info/en/answers/50726/zakah-on-trade-goods-and-shop-fittings"
                     class="nav-link p-0 text-body-secondary"
+                    target="_blank"
                     >Trade Goods</a
                   >
                 </li>
@@ -603,6 +795,8 @@
       </div>
     </section>
 
+    <script src="./node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
     <script type="module" src="./src/main.js"></script>
   </body>

@@ -4,7 +4,7 @@ export function calculateZakat(data) {
     $.ajax({
       url:
         "http://localhost:8080" ||
-        import.meta.env.VITE_ZAKAT_CALCULATOR_ENDPOINT,
+        "https://meqdar-al-zakat-api-h2e5e4c4gqeafcax.uaenorth-01.azurewebsites.net",
       type: "POST",
       contentType: "application/json",
       data: data,

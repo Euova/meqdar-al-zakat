@@ -4,6 +4,14 @@ import { displayResults } from "./result-display.js";
 import { importCurrencyList } from "./currencies-fetch.js";
 
 async function initializePage() {
+  // Enable Bootstrap popovers
+  const popoverTriggerList = document.querySelectorAll(
+    '[data-bs-toggle="popover"]'
+  );
+  const popoverList = [...popoverTriggerList].map(
+    (popoverTriggerEl) => new bootstrap.Popover(popoverTriggerEl)
+  );
+
   // Import currency list into appropraite select inputs
   await importCurrencyList();
 
