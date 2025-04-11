@@ -115,6 +115,10 @@ form {
   width: 60%;
 }
 
+.livestock-input {
+  width: 100%;
+}
+
 .form-label {
   margin: 0;
 }

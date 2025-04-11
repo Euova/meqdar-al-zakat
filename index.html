@@ -101,6 +101,7 @@
                 min="0"
                 step="any"
               />
+              <div class="invalid-feedback">Please enter a positive value.</div>
             </div>
           </div>
         </section>
@@ -143,6 +144,7 @@
                 <option value="10">10K</option>
                 <option value="9">9K</option>
               </select>
+              <div class="invalid-feedback">Please enter a positive value.</div>
             </div>
           </div>
           <div class="input-with-label">
@@ -177,6 +179,7 @@
                 <option value="g" selected>g</option>
                 <option value="kg">kg</option>
               </select>
+              <div class="invalid-feedback">Please enter a positive value.</div>
             </div>
           </div>
         </section>
@@ -197,15 +200,20 @@
                 <i class="bi bi-info-circle info-circle"></i>
               </span>
             </div>
-            <input
-              name="camel"
-              type="number"
-              class="form-control"
-              id="input-camel"
-              placeholder="0"
-              min="0"
-              step="1"
-            />
+            <div>
+              <input
+                name="camel"
+                type="number"
+                class="form-control livestock-input"
+                id="input-camel"
+                placeholder="0"
+                min="0"
+                step="1"
+              />
+              <div class="invalid-feedback">
+                Please enter a positive integer value.
+              </div>
+            </div>
           </div>
           <div class="input-with-label">
             <div>
@@ -221,15 +229,20 @@
                 <i class="bi bi-info-circle info-circle"></i>
               </span>
             </div>
-            <input
-              name="cattle"
-              type="number"
-              class="form-control"
-              id="input-cattle"
-              placeholder="0"
-              min="0"
-              step="1"
-            />
+            <div>
+              <input
+                name="cattle"
+                type="number"
+                class="form-control livestock-input"
+                id="input-cattle"
+                placeholder="0"
+                min="0"
+                step="1"
+              />
+              <div class="invalid-feedback">
+                Please enter a positive integer value.
+              </div>
+            </div>
           </div>
           <div class="input-with-label">
             <div>
@@ -245,15 +258,20 @@
                 <i class="bi bi-info-circle info-circle"></i>
               </span>
             </div>
-            <input
-              name="sheep"
-              type="number"
-              class="form-control"
-              id="input-sheep"
-              placeholder="0"
-              min="0"
-              step="1"
-            />
+            <div class="">
+              <input
+                name="sheep"
+                type="number"
+                class="form-control livestock-input"
+                id="input-sheep"
+                placeholder="0"
+                min="0"
+                step="1"
+              />
+              <div class="invalid-feedback">
+                Please enter a positive integer value.
+              </div>
+            </div>
           </div>
         </section>
 
@@ -292,6 +310,9 @@
                   <option value="saa" selected>saa'</option>
                   <option value="wasq">wasq</option>
                 </select>
+                <div class="invalid-feedback">
+                  Please enter a positive integer value.
+                </div>
               </div>
             </div>
             <div class="input-with-label">
@@ -362,6 +383,9 @@
                   <option value="saa" selected>saa'</option>
                   <option value="wasq">wasq</option>
                 </select>
+                <div class="invalid-feedback">
+                  Please enter a positive integer value.
+                </div>
               </div>
             </div>
             <div class="input-with-label">
@@ -432,6 +456,9 @@
                   <option value="saa" selected>saa'</option>
                   <option value="wasq">wasq</option>
                 </select>
+                <div class="invalid-feedback">
+                  Please enter a positive integer value.
+                </div>
               </div>
             </div>
             <div class="input-with-label">
@@ -502,6 +529,9 @@
                   <option value="saa" selected>saa'</option>
                   <option value="wasq">wasq</option>
                 </select>
+                <div class="invalid-feedback">
+                  Please enter a positive integer value.
+                </div>
               </div>
             </div>
             <div class="input-with-label">
@@ -571,8 +601,10 @@
                 class="form-control"
                 id="input-goods"
                 placeholder="0.00"
+                min="0"
                 step="any"
               />
+              <div class="invalid-feedback">Please enter a positive value.</div>
             </div>
           </div>
         </section>
