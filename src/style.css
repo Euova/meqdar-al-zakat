@@ -50,6 +50,12 @@ nav {
   border-bottom-right-radius: 1.5vw;
 }
 
+#google_translate_element > * > * {
+  padding: 1vw;
+  /* background-color: transparent; */
+  border: 0;
+}
+
 #page-title {
   /* font-weight: 400; */
   /* font-family: "Playwrite HU"; */

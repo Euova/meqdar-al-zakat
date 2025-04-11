@@ -24,6 +24,24 @@
         src="./public/white-lantern-icon.svg"
       />
     </nav>
+    <!-- Dropdown Button -->
+    <div class="dropdown">
+      <button
+        class="btn btn-secondary dropdown-toggle"
+        type="button"
+        data-bs-toggle="dropdown"
+        data-bs-auto-close="false"
+        aria-expanded="false"
+      >
+        <i class="bi bi-globe"></i>
+        Languages
+      </button>
+
+      <!-- Google Translate widget inside the dropdown -->
+      <div class="dropdown-menu">
+        <div id="google_translate_element"></div>
+      </div>
+    </div>
 
     <section id="form-section">
       <form class="needs-validation" novalidate>
@@ -795,6 +813,22 @@
       </div>
     </section>
 
+    <script
+      type="text/javascript"
+      src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    ></script>
+    <!-- Google Translate API -->
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: "en",
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          },
+          "google_translate_element"
+        );
+      }
+    </script>
     <script src="./node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
