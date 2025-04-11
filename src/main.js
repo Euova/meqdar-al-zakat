@@ -42,11 +42,9 @@ $(() => {
 
   $("form").on("submit", async (e) => {
     const formData = handleFormSubmit(e);
-    console.log(formData);
     if (formData) {
       try {
         const zakatPayable = await calculateZakat(formData); // Await the result of calculateZakat
-        console.log(zakatPayable);
         if (zakatPayable) {
           displayResults(zakatPayable, $("#result-section"));
         } else {
