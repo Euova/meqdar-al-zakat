@@ -13,6 +13,23 @@ body {
   background-color: white !important;
 }
 
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand > img {
+  margin-right: 0.5vw;
+}
+
+#nav-right {
+  display: flex;
+}
+
+#nav-right button {
+  margin-left: 0.5vw;
+}
+
 .dropdown-menu {
   text-align: center;
   text-wrap-style: balance;
