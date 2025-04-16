@@ -7,10 +7,25 @@
 body {
   margin: 0;
   overflow-x: hidden;
+  background: radial-gradient(
+        27% 29% at right,
+        #0000 83%,
+        #f4f1e5 85% 99%,
+        #0000 101%
+      )
+      calc(16px / 2) 16px,
+    radial-gradient(27% 29% at left, #0000 83%, #f4f1e5 85% 99%, #0000 101%)
+      calc(16px / -2) 16px,
+    radial-gradient(29% 27% at top, #0000 83%, #f4f1e5 85% 99%, #0000 101%) 0
+      calc(16px / 2),
+    radial-gradient(29% 27% at bottom, #0000 83%, #f4f1e5 85% 99%, #0000 101%) 0
+      calc(16px / -2) #ffffff;
+  background-size: 32px 32px;
 }
 
 .navbar {
   background-color: white !important;
+  border-bottom: 2px solid rgba(21, 115, 71, 0.15);
 }
 
 .navbar-brand {
@@ -56,7 +71,7 @@ body {
 
 form {
   background-color: #efeff2;
-  width: 50%;
+  width: 60%;
   /* border: 1px solid #dee2e6; */
   border-radius: 20px;
   display: flex;
@@ -114,7 +129,8 @@ select:valid {
 }
 
 .livestock-result {
-  text-align: left;
+  text-align: center;
+  list-style: none;
 }
 
 #footer-section {
@@ -138,4 +154,10 @@ select:valid {
 
 #footer-section a {
   color: rgba(255, 255, 255, 0.75) !important;
+}
+
+footer .nav.flex-column {
+  column-count: 3; /* Force 2 columns */
+  column-gap: 20px;
+  max-height: 25vh; /* Limit footer height */
 }
