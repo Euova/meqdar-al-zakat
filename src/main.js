@@ -19,6 +19,8 @@ function loadNewCalculation() {
 
   resetMultiStepForm();
 
+  syncCurrency();
+
   $("#result-section").hide();
   $("#wealth-form").show();
 }
@@ -42,8 +44,8 @@ async function initializePage() {
   // Import currency list into appropraite select inputs
   await importCurrencyList();
 
-  // Sync the cash currency with goods currency
-  syncTradeGoodsCurrency();
+  // Sync the cash and goods currency with main currency
+  syncCurrency();
 
   // Hide result section
   $("#result-section").hide();
@@ -54,7 +56,7 @@ async function initializePage() {
   loadingPage.hide();
 }
 
-function syncTradeGoodsCurrency() {
+function syncCurrency() {
   var selectedText = $("#input-main-currency option:selected").text(); // Get the text of the selected option
 
   // Empty input-goods-currency and input-cash-currency and add the selected option from input-main-currency
@@ -67,7 +69,7 @@ $(() => {
   initializePage();
 
   $("#input-main-currency").on("change", () => {
-    syncTradeGoodsCurrency();
+    syncCurrency();
   });
 
   $("#wealth-form").on("submit", (e) => {
