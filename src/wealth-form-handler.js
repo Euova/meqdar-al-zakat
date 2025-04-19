@@ -1,5 +1,21 @@
 import { showTab } from "./multiple-step-form.js";
 
+function triggerAlert(message, type) {
+  const alertPlaceholder = $("#wealth-form-alert-placeholder");
+  alertPlaceholder.empty();
+  const wrapper = $("<div></div>");
+  wrapper.html(
+    [
+      `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+      `   <div>${message}</div>`,
+      '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+      "</div>",
+    ].join("")
+  );
+
+  alertPlaceholder.append(wrapper);
+}
+
 export function handleWealthFormSubmit(e) {
   e.preventDefault();
 
@@ -11,6 +27,13 @@ export function handleWealthFormSubmit(e) {
   Object.keys(formData).forEach((key) => {
     wealthSelected.push(key);
   });
+
+  // If user does not select any wealth type
+  if (wealthSelected.length < 2) {
+    triggerAlert("Please select atleast one wealth type.", "danger");
+    e.stopPropagation();
+    return null;
+  }
 
   // Format them to match html tab class names
   let moneyHandled = false;

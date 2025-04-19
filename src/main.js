@@ -21,6 +21,7 @@ function loadNewCalculation() {
 
   syncCurrency();
 
+  $("#wealth-form-alert-placeholder").empty();
   $("#result-section").hide();
   $("#wealth-form").show();
 }
