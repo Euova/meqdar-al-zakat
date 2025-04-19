@@ -46,9 +46,9 @@ export function fetchCurrencies() {
 export async function importCurrencyList(selectElement) {
   const currencies = await fetchCurrencies();
   $(".input-currency").empty();
-  // For each select element with class "input-currency", fill it out with all supported currencies
+  // Fill input-main-currency with all supported currencies
   Object.keys(currencies).forEach((key) => {
-    $(".input-currency").append(
+    $("#input-main-currency").append(
       $(`<option value=${key.toLowerCase()}>${key}</option>`)
     );
   });

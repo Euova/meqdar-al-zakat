@@ -16,9 +16,19 @@
     <link rel="stylesheet" href="./src/style.css" />
   </head>
   <body>
+    <div id="loader-page">
+      <div class="loader">
+        <div class="orbe" style="--index: 0"></div>
+        <div class="orbe" style="--index: 1"></div>
+        <div class="orbe" style="--index: 2"></div>
+        <div class="orbe" style="--index: 3"></div>
+        <div class="orbe" style="--index: 4"></div>
+      </div>
+    </div>
+
     <nav class="navbar bg-body-tertiary">
       <div class="container-fluid">
-        <a class="navbar-brand">
+        <a href="./index.html" class="navbar-brand">
           <img
             src="./public/meqdar-al-zakat-logo.svg"
             alt="Logo"
@@ -289,8 +299,89 @@
     </div>
 
     <section id="form-section">
-      <form class="needs-validation" novalidate>
-        <section class="mb-5">
+      <form class="needs-validation" id="wealth-form" novalidate>
+        <section class="mb-5 tab" id="tab-wealth">
+          <h3>Types of Wealth</h3>
+          <p>Select all types of wealth that you own</p>
+          <div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="wealth-cash"
+                name="cash"
+                checked
+              />
+              <label class="form-check-label" for="wealth-cash"> Cash </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="wealth-gold"
+                name="gold"
+              />
+              <label class="form-check-label" for="wealth-gold"> Gold </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="wealth-silver"
+                name="silver"
+              />
+              <label class="form-check-label" for="wealth-silver">
+                Silver
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="wealth-livestock"
+                name="livestock"
+              />
+              <label class="form-check-label" for="wealth-livestock">
+                Livestock
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="wealth-crops"
+                name="crops"
+              />
+              <label class="form-check-label" for="wealth-crops">
+                Crops and Fruits
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="wealth-trade"
+                name="trade"
+              />
+              <label class="form-check-label" for="wealth-trade">
+                Trade Goods
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <button class="btn btn-success" type="submit">Next</button>
+      </form>
+
+      <form class="needs-validation" id="zakat-form" novalidate>
+        <section class="mb-5 tab" id="tab-nisab">
+          <h3>Nisab</h3>
           <div class="input-with-label">
             <div>
               <label for="input-nisab" class="form-label"
@@ -313,9 +404,31 @@
               <option value="gold">Gold</option>
             </select>
           </div>
+          <div class="input-with-label">
+            <div>
+              <label for="input-main-currency" class="form-label"
+                >Currency
+              </label>
+              <span
+                class="d-inline-block"
+                tabindex="0"
+                data-bs-toggle="popover"
+                data-bs-trigger="hover focus"
+                data-bs-title="Currency"
+                data-bs-content="Choose your preferred currency. This selection will determine the currency used to display your results, as well as the one you'll use to enter the value of your cash and trade goods."
+              >
+                <i class="bi bi-question-circle-fill question-circle"></i>
+              </span>
+            </div>
+            <select
+              class="form-select input-currency"
+              id="input-main-currency"
+              name="currency"
+            ></select>
+          </div>
         </section>
 
-        <section class="mb-5">
+        <section class="mb-5 tab" id="tab-cash">
           <h3>Cash</h3>
           <div class="input-with-label">
             <div>
@@ -335,7 +448,7 @@
               <select
                 class="form-select input-currency"
                 id="input-cash-currency"
-                name="currency"
+                disabled
               ></select>
               <input
                 name="cash"
@@ -350,11 +463,12 @@
             </div>
           </div>
         </section>
-        <section class="mb-5">
-          <h3>Gold and Silver</h3>
+
+        <section class="mb-5 tab" id="tab-gold">
+          <h3>Gold</h3>
           <div class="input-with-label">
             <div>
-              <label for="input-gold" class="form-label">Gold</label>
+              <label for="input-gold" class="form-label">24 Karat Gold</label>
               <span
                 class="d-inline-block"
                 tabindex="0"
@@ -368,7 +482,7 @@
             </div>
             <div class="input-group">
               <input
-                name="gold"
+                name="gold24"
                 type="number"
                 class="form-control"
                 id="input-gold"
@@ -376,22 +490,202 @@
                 min="0"
                 step="any"
               />
-              <select class="form-select" id="input-gold-unit" name="goldUnit">
+              <select
+                class="form-select"
+                id="input-gold-unit"
+                name="gold24Unit"
+              >
                 <option value="g" selected>g</option>
                 <option value="kg">kg</option>
               </select>
-              <select class="form-select" id="input-gold-unit" name="goldKarat">
-                <option value="24" selected>24K</option>
-                <option value="22">22K</option>
-                <option value="18">18K</option>
-                <option value="14">14K</option>
-                <option value="12">12K</option>
-                <option value="10">10K</option>
-                <option value="9">9K</option>
-              </select>
+              <span class="input-group-text">24 Karat</span>
               <div class="invalid-feedback">Please enter a positive value.</div>
             </div>
           </div>
+          <div class="input-with-label">
+            <div>
+              <label for="input-gold" class="form-label">22 Karat Gold</label>
+              <span
+                class="d-inline-block"
+                tabindex="0"
+                data-bs-toggle="popover"
+                data-bs-trigger="hover focus"
+                data-bs-title="Gold - Nisab: 85g"
+                data-bs-content="Enter the total weight of your gold (in grams or kg) and its purity (e.g., 24k, 22k, etc.). The more correct view is that zakat is due on all gold, even personal jewelry."
+              >
+                <i class="bi bi-question-circle-fill question-circle"></i>
+              </span>
+            </div>
+            <div class="input-group">
+              <input
+                name="gold22"
+                type="number"
+                class="form-control"
+                id="input-gold"
+                placeholder="0.00"
+                min="0"
+                step="any"
+              />
+              <select
+                class="form-select"
+                id="input-gold-unit"
+                name="gold22Unit"
+              >
+                <option value="g" selected>g</option>
+                <option value="kg">kg</option>
+              </select>
+              <span class="input-group-text">22 Karat</span>
+              <div class="invalid-feedback">Please enter a positive value.</div>
+            </div>
+          </div>
+          <div class="input-with-label">
+            <div>
+              <label for="input-gold" class="form-label">21 Karat Gold</label>
+              <span
+                class="d-inline-block"
+                tabindex="0"
+                data-bs-toggle="popover"
+                data-bs-trigger="hover focus"
+                data-bs-title="Gold - Nisab: 85g"
+                data-bs-content="Enter the total weight of your gold (in grams or kg) and its purity (e.g., 24k, 22k, etc.). The more correct view is that zakat is due on all gold, even personal jewelry."
+              >
+                <i class="bi bi-question-circle-fill question-circle"></i>
+              </span>
+            </div>
+            <div class="input-group">
+              <input
+                name="gold21"
+                type="number"
+                class="form-control"
+                id="input-gold"
+                placeholder="0.00"
+                min="0"
+                step="any"
+              />
+              <select
+                class="form-select"
+                id="input-gold-unit"
+                name="gold21Unit"
+              >
+                <option value="g" selected>g</option>
+                <option value="kg">kg</option>
+              </select>
+              <span class="input-group-text">21 Karat</span>
+              <div class="invalid-feedback">Please enter a positive value.</div>
+            </div>
+          </div>
+          <div class="input-with-label">
+            <div>
+              <label for="input-gold" class="form-label">20 Karat Gold</label>
+              <span
+                class="d-inline-block"
+                tabindex="0"
+                data-bs-toggle="popover"
+                data-bs-trigger="hover focus"
+                data-bs-title="Gold - Nisab: 85g"
+                data-bs-content="Enter the total weight of your gold (in grams or kg) and its purity (e.g., 24k, 22k, etc.). The more correct view is that zakat is due on all gold, even personal jewelry."
+              >
+                <i class="bi bi-question-circle-fill question-circle"></i>
+              </span>
+            </div>
+            <div class="input-group">
+              <input
+                name="gold20"
+                type="number"
+                class="form-control"
+                id="input-gold"
+                placeholder="0.00"
+                min="0"
+                step="any"
+              />
+              <select
+                class="form-select"
+                id="input-gold-unit"
+                name="gold20Unit"
+              >
+                <option value="g" selected>g</option>
+                <option value="kg">kg</option>
+              </select>
+              <span class="input-group-text">20 Karat</span>
+              <div class="invalid-feedback">Please enter a positive value.</div>
+            </div>
+          </div>
+          <div class="input-with-label">
+            <div>
+              <label for="input-gold" class="form-label">18 Karat Gold</label>
+              <span
+                class="d-inline-block"
+                tabindex="0"
+                data-bs-toggle="popover"
+                data-bs-trigger="hover focus"
+                data-bs-title="Gold - Nisab: 85g"
+                data-bs-content="Enter the total weight of your gold (in grams or kg) and its purity (e.g., 24k, 22k, etc.). The more correct view is that zakat is due on all gold, even personal jewelry."
+              >
+                <i class="bi bi-question-circle-fill question-circle"></i>
+              </span>
+            </div>
+            <div class="input-group">
+              <input
+                name="gold18"
+                type="number"
+                class="form-control"
+                id="input-gold"
+                placeholder="0.00"
+                min="0"
+                step="any"
+              />
+              <select
+                class="form-select"
+                id="input-gold-unit"
+                name="gold18Unit"
+              >
+                <option value="g" selected>g</option>
+                <option value="kg">kg</option>
+              </select>
+              <span class="input-group-text">18 Karat</span>
+              <div class="invalid-feedback">Please enter a positive value.</div>
+            </div>
+          </div>
+          <div class="input-with-label">
+            <div>
+              <label for="input-gold" class="form-label">14 Karat Gold</label>
+              <span
+                class="d-inline-block"
+                tabindex="0"
+                data-bs-toggle="popover"
+                data-bs-trigger="hover focus"
+                data-bs-title="Gold - Nisab: 85g"
+                data-bs-content="Enter the total weight of your gold (in grams or kg) and its purity (e.g., 24k, 22k, etc.). The more correct view is that zakat is due on all gold, even personal jewelry."
+              >
+                <i class="bi bi-question-circle-fill question-circle"></i>
+              </span>
+            </div>
+            <div class="input-group">
+              <input
+                name="gold14"
+                type="number"
+                class="form-control"
+                id="input-gold"
+                placeholder="0.00"
+                min="0"
+                step="any"
+              />
+              <select
+                class="form-select"
+                id="input-gold-unit"
+                name="gold14Unit"
+              >
+                <option value="g" selected>g</option>
+                <option value="kg">kg</option>
+              </select>
+              <span class="input-group-text">14 Karat</span>
+              <div class="invalid-feedback">Please enter a positive value.</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-5 tab" id="tab-silver">
+          <h3>Silver</h3>
           <div class="input-with-label">
             <div>
               <label for="input-silver" class="form-label">Silver</label>
@@ -429,7 +723,7 @@
           </div>
         </section>
 
-        <section class="mb-5">
+        <section class="mb-5 tab" id="tab-livestock">
           <h3>Livestock</h3>
           <div class="input-with-label">
             <div>
@@ -520,7 +814,7 @@
           </div>
         </section>
 
-        <section class="mb-5">
+        <section class="mb-5 tab" id="tab-crops">
           <h3>Crops and Fruits</h3>
           <div class="crop-input">
             <div class="input-with-label">
@@ -815,7 +1109,7 @@
           </div>
         </section>
 
-        <section class="mb-5">
+        <section class="mb-5 tab" id="tab-trade">
           <h3>Trade Goods</h3>
 
           <div class="input-with-label">
@@ -836,7 +1130,7 @@
             </div>
             <div class="input-group">
               <select
-                class="form-select"
+                class="form-select input-currency"
                 id="input-goods-currency"
                 disabled
               ></select>
@@ -853,10 +1147,25 @@
             </div>
           </div>
         </section>
-        <button class="btn btn-success" type="submit">Calculate Zakat</button>
+
+        <!-- Next previous buttons for multi-step form -->
+        <div>
+          <div id="next-prev-container">
+            <button class="btn btn-success" type="button" id="prevBtn">
+              Previous
+            </button>
+            <button class="btn btn-success" type="button" id="nextBtn">
+              Next
+            </button>
+          </div>
+        </div>
+
+        <!-- Circles which indicates the steps of the form -->
+        <div id="steps-placeholder"></div>
       </form>
+
       <section id="result-section" class="container">
-        <div class="row">
+        <div class="row result-tab" id="result-money">
           <div class="result-box mb-3 py-4">
             <h3 class="mb-4">Money</h3>
             <div class="row">
@@ -883,7 +1192,8 @@
             </div>
           </div>
         </div>
-        <div class="row">
+
+        <div class="row result-tab" id="result-livestock">
           <div class="result-box mb-3 py-4">
             <h3 class="mb-4">Livestock</h3>
             <div class="row">
@@ -913,7 +1223,8 @@
             </div>
           </div>
         </div>
-        <div class="row">
+
+        <div class="row result-tab" id="result-crops">
           <div class="result-box mb-3 py-4">
             <h3 class="mb-4">Crops and Fruits</h3>
             <div class="row">
@@ -936,7 +1247,8 @@
             </div>
           </div>
         </div>
-        <div class="row">
+
+        <div class="row result-tab" id="result-trade">
           <div class="result-box mb-3 py-4">
             <h3 class="mb-4">Trade Goods</h3>
             <div class="row">
@@ -950,6 +1262,12 @@
               </div>
             </div>
           </div>
+        </div>
+
+        <div id="reset-btn-container">
+          <button id="reset-btn" class="btn btn-success">
+            New Calculation
+          </button>
         </div>
       </section>
     </section>

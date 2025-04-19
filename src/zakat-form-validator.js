@@ -1,4 +1,4 @@
-export function handleFormSubmit(e) {
+export function handleZakatFormSubmit(e) {
   const form = e.target; // Get form
 
   form.classList.add("was-validated");

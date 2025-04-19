@@ -23,6 +23,60 @@ body {
   background-size: 32px 32px;
 }
 
+#loader-page {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.loader {
+  --size-loader: 3vw;
+  --size-orbe: 0.75vw;
+  width: var(--size-loader);
+  height: var(--size-loader);
+  position: relative;
+  transform: rotate(45deg);
+}
+
+.orbe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  --delay: calc(var(--index) * 0.1s);
+  animation: orbit7456 ease-in-out 1.5s var(--delay) infinite;
+  opacity: calc(1 - calc(0.2 * var(--index)));
+}
+
+.orbe::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: var(--size-orbe);
+  height: var(--size-orbe);
+  background-color: #3ae374;
+  box-shadow: 0px 0px 1.25vw 0.1vw #3ae374;
+  border-radius: 50%;
+}
+
+@keyframes orbit7456 {
+  0% {
+  }
+
+  80% {
+    transform: rotate(360deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .navbar {
   background-color: white !important;
   border-bottom: 2px solid rgba(21, 115, 71, 0.15);
@@ -60,8 +114,7 @@ body {
   border: 1px solid #dee2e6;
   border-radius: 20px;
 }
-/* .goog-te-combo {
-} */
+
 #form-section {
   display: flex;
   flex-direction: column;
@@ -78,6 +131,19 @@ form {
   flex-direction: column;
   margin: 4vw;
   padding: 2vw;
+}
+
+.tab {
+  display: none;
+}
+
+#steps-placeholder {
+  text-align: center;
+  margin-top: 4vw;
+}
+
+#tab-wealth {
+  display: block;
 }
 
 .input-with-label {
@@ -117,15 +183,60 @@ form {
   max-width: fit-content;
 }
 
-select:valid {
-  padding: 0.375rem 2.25rem 0.375rem 0.75rem !important;
-  --bs-form-select-bg-icon: none !important; /* Remove icon */
+#next-prev-container {
+  display: flex;
+  justify-content: right;
+}
+
+#next-prev-container > button {
+  margin-left: 0.5vw;
+}
+
+/* Make circles that indicate the steps of the form */
+.step {
+  height: 1vw;
+  width: 1vw;
+  margin: 0 0.15vw;
+  background-color: #bbbbbb;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+/* Mark the active step */
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid */
+.step.finish {
+  background-color: #04aa6d;
+}
+
+#result-section {
+  margin-top: 6vw;
+  margin-bottom: 6vw;
+}
+
+.result-tab {
+  display: none;
+}
+
+.selected-result {
+  display: block;
 }
 
 .result-box {
   text-align: center;
   background-color: #efeff2;
   border-radius: 20px;
+}
+
+#reset-btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2vw;
 }
 
 .livestock-result {
@@ -157,7 +268,7 @@ select:valid {
 }
 
 footer .nav.flex-column {
-  column-count: 3; /* Force 2 columns */
-  column-gap: 20px;
+  column-count: 3;
+  column-gap: 2vw;
   max-height: 25vh; /* Limit footer height */
 }
