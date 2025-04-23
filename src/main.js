@@ -23,6 +23,7 @@ function loadNewCalculation() {
 
   $("#wealth-form-alert-placeholder").empty();
   $("#result-section").hide();
+
   $("#wealth-form").show();
 }
 
@@ -88,7 +89,12 @@ $(() => {
         loadingPage.hide();
         if (zakatPayable) {
           $("#zakat-form").hide();
-          displayResults(zakatPayable, $("#result-section"));
+          displayResults(
+            formData,
+            zakatPayable,
+            $("#result-section"),
+            $("#result-user-summary")
+          );
         } else {
           console.error("Error calculating zakat");
         }

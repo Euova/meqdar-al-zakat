@@ -61,7 +61,6 @@ function nextPrev(n) {
 
   // If you have reached the end of the form
   if (currentTabIndex >= selectedTabs.length) {
-    console.log("ee");
     // The form gets submitted
     $("#zakat-form").trigger("submit");
     return false;
