@@ -26,7 +26,7 @@
       </div>
     </div>
 
-    <nav class="navbar bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
         <a href="./index.html" class="navbar-brand">
           <img
@@ -38,40 +38,53 @@
           />
           Meqdar Al Zakat</a
         >
-        <div id="nav-right">
-          <!-- Button trigger modal -->
-          <button
-            type="button"
-            class="btn btn-success"
-            id="instruction-btn"
-            data-bs-toggle="modal"
-            data-bs-target="#instructions-modal"
-          >
-            View Instructions
-          </button>
-          <!-- Dropdown Button -->
-          <div class="dropdown">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div id="nav-right">
+            <!-- Button trigger modal -->
             <button
-              class="btn btn-outline-success dropdown-toggle"
               type="button"
-              data-bs-toggle="dropdown"
-              data-bs-auto-close="false"
-              aria-expanded="false"
+              class="btn btn-success"
+              id="instruction-btn"
+              data-bs-toggle="modal"
+              data-bs-target="#instructions-modal"
             >
-              <i class="bi bi-globe"></i>
-              Languages
+              View Instructions
             </button>
+            <!-- Dropdown Button -->
+            <div class="dropdown">
+              <button
+                class="btn btn-outline-success dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="false"
+                aria-expanded="false"
+              >
+                <i class="bi bi-globe"></i>
+                Languages
+              </button>
 
-            <!-- Google Translate widget inside the dropdown -->
-            <div class="dropdown-menu dropdown-menu-end">
-              <h5>Translate this page to</h5>
-              <div id="google_translate_element"></div>
+              <!-- Google Translate widget inside the dropdown -->
+              <div class="dropdown-menu dropdown-menu-end">
+                <h5>Translate this page to</h5>
+                <div id="google_translate_element"></div>
 
-              <p>
-                Disclaimer: You are using google translate. We are not
-                responsible for the accuracy of the information in the google
-                translated language.
-              </p>
+                <p>
+                  Disclaimer: You are using google translate. We are not
+                  responsible for the accuracy of the information in the google
+                  translated language.
+                </p>
+              </div>
             </div>
           </div>
         </div>

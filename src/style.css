@@ -78,7 +78,7 @@ body {
 }
 
 .navbar {
-  background-color: white !important;
+  background-color: white;
   border-bottom: 2px solid rgba(21, 115, 71, 0.15);
 }
 
@@ -89,6 +89,10 @@ body {
 
 .navbar-brand > img {
   margin-right: 0.5vw;
+}
+
+#navbarSupportedContent {
+  justify-content: right;
 }
 
 #nav-right {
