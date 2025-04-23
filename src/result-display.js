@@ -1,16 +1,17 @@
-function getUsedInputs(userInput) {
-  let selectedInputs = {
-    nisab: userInput.nisabUnit,
-  };
+function getSelectedInputs(userInput) {
+  let selectedInputs = {};
 
-  if ($("#result-money").hasClass("selected-result")) {
-    Object.assign(selectedInputs, {
-      cash: `${userInput.currency} ${userInput.cash}`,
-    });
+  if ($("#tab-nisab").hasClass("selected-tab")) {
+    selectedInputs.nisab = userInput.nisabUnit;
+  }
 
+  if ($("#result-cash").hasClass("selected-result")) {
+    selectedInputs.cash = `${userInput.currency} ${userInput.cash}`;
+  }
+
+  if ($("#result-gold").hasClass("selected-result")) {
     Object.entries(userInput).forEach(([key, value]) => {
       const goldMatch = key.match(/^gold(\d{2})$/); // Extracts the karat number
-      const silverMatch = key === "silver";
 
       if (goldMatch) {
         const karat = goldMatch[1];
@@ -19,20 +20,19 @@ function getUsedInputs(userInput) {
         const label = `Gold ${karat} Karat`;
         selectedInputs[label] = `${amount}${unit}`;
       }
-
-      if (silverMatch) {
-        const amount = value;
-        const unit = userInput["silverUnit"] || "";
-        const label = "Silver";
-        selectedInputs[label] = `${amount}${unit}`;
-      }
     });
   }
 
+  if ($("#result-silver").hasClass("selected-result")) {
+    const amount = userInput.silver;
+    const unit = userInput.silverUnit || "";
+    selectedInputs.silver = `${amount}${unit}`;
+  }
+
   if ($("#result-livestock").hasClass("selected-result")) {
-    Object.assign(selectedInputs, { camel: userInput.camel });
-    Object.assign(selectedInputs, { cattle: userInput.cattle });
-    Object.assign(selectedInputs, { sheep: userInput.sheep });
+    selectedInputs.camel = userInput.camel;
+    selectedInputs.cattle = userInput.cattle;
+    selectedInputs.sheep = userInput.sheep;
   }
 
   if ($("#result-crops").hasClass("selected-result")) {
@@ -55,22 +55,14 @@ function getUsedInputs(userInput) {
         const label = crop.charAt(0).toUpperCase() + crop.slice(1); // Capitalize first letter
         selectedInputs[label] = `${amount} ${unit} | ${
           irrigationTypes[irrigation - 1]
-        }`.trim(); // Trim in case irrigation is empty
+        }`.trim();
       }
     });
   }
 
   if ($("#result-trade").hasClass("selected-result")) {
-    Object.assign(selectedInputs, {
-      "Trade Goods": `${userInput.currency} ${userInput.goods}`,
-    });
+    selectedInputs["Trade Goods"] = `${userInput.currency} ${userInput.goods}`;
   }
-
-  Object.entries(selectedInputs).forEach(([key, value]) => {
-    // if (value === "0" || value === "0g") {
-    // delete selectedInputs[key];
-    // }
-  });
 
   return selectedInputs;
 }
@@ -78,7 +70,7 @@ function getUsedInputs(userInput) {
 function fillUserSummary(userInput, userSummaryPlaceholder) {
   userSummaryPlaceholder.empty();
 
-  const selectedInputs = getUsedInputs(userInput);
+  const selectedInputs = getSelectedInputs(userInput);
 
   Object.entries(selectedInputs).forEach(([key, value]) => {
     userSummaryPlaceholder.append(
@@ -90,19 +82,19 @@ function fillUserSummary(userInput, userSummaryPlaceholder) {
   });
 }
 
-function fillMoneyResultBox(
-  moneyTotalAssets,
-  cashZakat,
-  goldZakat,
-  silverZakat,
-  moneyTotalZakat,
-  moneyTextFormat
-) {
-  $("#result-money-total").text(moneyTextFormat.format(moneyTotalAssets));
-  $("#result-cash").text(moneyTextFormat.format(cashZakat));
-  $("#result-gold").text(moneyTextFormat.format(goldZakat));
-  $("#result-silver").text(moneyTextFormat.format(silverZakat));
-  $("#result-money-zakat").text(moneyTextFormat.format(moneyTotalZakat));
+function fillCashResultBox(cashTotalAssets, cashZakat, moneyTextFormat) {
+  $("#result-cash-total").text(moneyTextFormat.format(cashTotalAssets));
+  $("#result-cash-zakat").text(moneyTextFormat.format(cashZakat));
+}
+
+function fillGoldResultBox(goldTotalAssets, goldZakat, moneyTextFormat) {
+  $("#result-gold-total").text(moneyTextFormat.format(goldTotalAssets));
+  $("#result-gold-zakat").text(moneyTextFormat.format(goldZakat));
+}
+
+function fillSilverResultBox(silverTotalAssets, silverZakat, moneyTextFormat) {
+  $("#result-silver-total").text(moneyTextFormat.format(silverTotalAssets));
+  $("#result-silver-zakat").text(moneyTextFormat.format(silverZakat));
 }
 
 function fillLivestockResultBox(camelZakat, cattleZakat, sheepZakat) {
@@ -190,34 +182,44 @@ export function displayResults(
 ) {
   const moneyTextFormat = new Intl.NumberFormat(undefined, {
     style: "currency",
-    currency: zakatPayable.money.currency.toUpperCase(),
+    currency: userInput.currency.toUpperCase(),
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   });
-
-  resultSection.show();
-  scrollToResults(resultSection);
 
   fixCollapseArrows($("#result-summary-title"));
 
   fillUserSummary(userInput, userSummaryPlaceholder);
 
-  // Money Result Box
-  fillMoneyResultBox(
-    zakatPayable.money.totalAssets,
+  // Cash Result Box
+  fillCashResultBox(
+    zakatPayable.money.cashTotalAssets,
     zakatPayable.money.cash,
-    zakatPayable.money.gold,
-    zakatPayable.money.silver,
-    zakatPayable.money.totalZakat,
     moneyTextFormat
   );
 
+  // Gold Result Box
+  fillGoldResultBox(
+    zakatPayable.money.goldTotalAssets,
+    zakatPayable.money.gold,
+    moneyTextFormat
+  );
+
+  // Silver Result Box
+  fillSilverResultBox(
+    zakatPayable.money.silverTotalAssets,
+    zakatPayable.money.silver,
+    moneyTextFormat
+  );
+
+  // Livestock Result Box
   fillLivestockResultBox(
     zakatPayable.livestock.camel,
     zakatPayable.livestock.cattle,
     zakatPayable.livestock.sheep
   );
 
+  // Crops Result Box
   fillCropsResultBox(
     zakatPayable.crops.wheat,
     zakatPayable.crops.barley,
@@ -225,9 +227,14 @@ export function displayResults(
     zakatPayable.crops.raisins
   );
 
+  // Trade Goods Result Box
   fillGoodsResultBox(
     zakatPayable.goods.totalAssets,
     zakatPayable.goods.totalZakat,
     moneyTextFormat
   );
+
+  resultSection.show();
+
+  scrollToResults(resultSection);
 }

@@ -23,38 +23,41 @@ export function handleWealthFormSubmit(e) {
   formData = Object.fromEntries(formData.entries());
 
   // Get all wealth types selected by user
-  let wealthSelected = ["nisab"];
+  let wealthSelected = [];
+  const nisabDependants = ["cash", "trade"];
+  const currencyDependants = ["cash", "trade", "gold", "silver"];
+
   Object.keys(formData).forEach((key) => {
     wealthSelected.push(key);
+
+    // Add nisab tab if needed
+    if (!wealthSelected.includes("nisab") && nisabDependants.includes(key)) {
+      wealthSelected.push("nisab");
+    }
+
+    // Add currency tab if needed
+    if (
+      !wealthSelected.includes("currency") &&
+      currencyDependants.includes(key)
+    ) {
+      wealthSelected.push("currency");
+    }
   });
 
   // If user does not select any wealth type
-  if (wealthSelected.length < 2) {
+  if (wealthSelected.length < 1) {
     triggerAlert("Please select atleast one wealth type.", "danger");
     e.stopPropagation();
     return null;
   }
 
-  // Format them to match html tab class names
-  let moneyHandled = false;
-
   wealthSelected.forEach((type, index) => {
     $(`#tab-${type}`).addClass("selected-tab");
 
-    // Skips nisab for results
-    if (index === 0) return;
+    // Skips nisab and currency tabs for results
+    if (["nisab", "currency"].includes(type)) return;
 
-    if (
-      !moneyHandled &&
-      (wealthSelected.includes("cash") ||
-        wealthSelected.includes("gold") ||
-        wealthSelected.includes("silver"))
-    ) {
-      $("#result-money").addClass("selected-result");
-      moneyHandled = true;
-    } else {
-      $(`#result-${type}`).addClass("selected-result");
-    }
+    $(`#result-${type}`).addClass("selected-result");
   });
 
   // Create steps circles based on the number of wealth types the user selects

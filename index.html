@@ -26,71 +26,6 @@
       </div>
     </div>
 
-    <nav class="navbar navbar-expand-lg">
-      <div class="container-fluid">
-        <a href="./index.html" class="navbar-brand">
-          <img
-            src="./public/meqdar-al-zakat-logo.svg"
-            alt="Logo"
-            width="48"
-            height="48"
-            class="d-inline-block align-text-top"
-          />
-          Meqdar Al Zakat</a
-        >
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <div id="nav-right">
-            <!-- Button trigger modal -->
-            <button
-              type="button"
-              class="btn btn-success"
-              id="instruction-btn"
-              data-bs-toggle="modal"
-              data-bs-target="#instructions-modal"
-            >
-              View Instructions
-            </button>
-            <!-- Dropdown Button -->
-            <div class="dropdown">
-              <button
-                class="btn btn-outline-success dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                data-bs-auto-close="false"
-                aria-expanded="false"
-              >
-                <i class="bi bi-globe"></i>
-                Languages
-              </button>
-
-              <!-- Google Translate widget inside the dropdown -->
-              <div class="dropdown-menu dropdown-menu-end">
-                <h5>Translate this page to</h5>
-                <div id="google_translate_element"></div>
-
-                <p>
-                  Disclaimer: You are using google translate. We are not
-                  responsible for the accuracy of the information in the google
-                  translated language.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav>
-
     <!-- Vertically centered scrollable large modal -->
     <div
       class="modal fade"
@@ -372,6 +307,71 @@
       </div>
     </div>
 
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a href="./index.html" class="navbar-brand">
+          <img
+            src="./public/meqdar-al-zakat-logo.svg"
+            alt="Logo"
+            width="48"
+            height="48"
+            class="d-inline-block align-text-top"
+          />
+          Meqdar Al Zakat</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div id="nav-right">
+            <!-- Button trigger modal -->
+            <button
+              type="button"
+              class="btn btn-success"
+              id="instruction-btn"
+              data-bs-toggle="modal"
+              data-bs-target="#instructions-modal"
+            >
+              View Instructions
+            </button>
+            <!-- Dropdown Button -->
+            <div class="dropdown">
+              <button
+                class="btn btn-outline-success dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="false"
+                aria-expanded="false"
+              >
+                <i class="bi bi-globe"></i>
+                Languages
+              </button>
+
+              <!-- Google Translate widget inside the dropdown -->
+              <div class="dropdown-menu dropdown-menu-end">
+                <h5>Translate this page to</h5>
+                <div id="google_translate_element"></div>
+
+                <p>
+                  Disclaimer: You are using google translate. We are not
+                  responsible for the accuracy of the information in the google
+                  translated language.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
     <section id="form-section">
       <form class="needs-validation" id="wealth-form" novalidate>
         <div id="wealth-form-alert-placeholder"></div>
@@ -461,7 +461,7 @@
           <div class="input-with-label">
             <div>
               <label for="input-nisab" class="form-label"
-                >Nisab Calculated on
+                >Nisab calculated on
               </label>
               <span
                 class="d-inline-block"
@@ -480,6 +480,10 @@
               <option value="gold">Gold</option>
             </select>
           </div>
+        </section>
+
+        <section class="mb-5 tab" id="tab-currency">
+          <h3>Currency</h3>
           <div class="input-with-label">
             <div>
               <label for="input-main-currency" class="form-label"
@@ -1183,29 +1187,49 @@
         </div>
       </div>
 
-      <div class="row result-tab" id="result-money">
+      <div class="row result-tab" id="result-cash">
         <div class="result-box mb-3 py-4">
-          <h3 class="mb-4">Money</h3>
+          <h3 class="mb-4">Cash</h3>
           <div class="row">
             <div class="col mb-3">
               <h5>Total Assets</h5>
-              <p class="p-0 text-body-secondary" id="result-money-total"></p>
-            </div>
-            <div class="col mb-3">
-              <h5>Cash Zakat</h5>
-              <p class="p-0 text-body-secondary" id="result-cash"></p>
-            </div>
-            <div class="col mb-3">
-              <h5>Gold Zakat</h5>
-              <p class="p-0 text-body-secondary" id="result-gold"></p>
-            </div>
-            <div class="col mb-3">
-              <h5>Silver Zakat</h5>
-              <p class="p-0 text-body-secondary" id="result-silver"></p>
+              <p class="p-0 text-body-secondary" id="result-cash-total"></p>
             </div>
             <div class="col mb-3">
               <h5>Total Zakat Payable</h5>
-              <p class="p-0 text-body-secondary" id="result-money-zakat"></p>
+              <p class="p-0 text-body-secondary" id="result-cash-zakat"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row result-tab" id="result-gold">
+        <div class="result-box mb-3 py-4">
+          <h3 class="mb-4">Gold</h3>
+          <div class="row">
+            <div class="col mb-3">
+              <h5>Total Assets</h5>
+              <p class="p-0 text-body-secondary" id="result-gold-total"></p>
+            </div>
+            <div class="col mb-3">
+              <h5>Total Zakat Payable</h5>
+              <p class="p-0 text-body-secondary" id="result-gold-zakat"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row result-tab" id="result-silver">
+        <div class="result-box mb-3 py-4">
+          <h3 class="mb-4">Silver</h3>
+          <div class="row">
+            <div class="col mb-3">
+              <h5>Total Assets</h5>
+              <p class="p-0 text-body-secondary" id="result-silver-total"></p>
+            </div>
+            <div class="col mb-3">
+              <h5>Total Zakat Payable</h5>
+              <p class="p-0 text-body-secondary" id="result-silver-zakat"></p>
             </div>
           </div>
         </div>
