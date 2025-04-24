@@ -1191,30 +1191,15 @@
       <div class="result-tab" id="result-total">
         <div class="result-box mb-3 py-4">
           <h3 class="mb-4">Total Zakat</h3>
-          <div class="row">
-            <div class="col mb-3">
-              <h5>Total Assets</h5>
-              <ul
-                class="p-0 text-body-secondary total-result"
-                id="result-total-assets"
-              >
-                <ul id="result-money-total-assets"></ul>
-                <ul id="result-livestock-total-assets"></ul>
-                <ul id="result-crops-total-assets"></ul>
-              </ul>
-            </div>
-            <div class="col mb-3">
-              <h5>Total Zakat Payable</h5>
-              <ul
-                class="p-0 text-body-secondary total-result"
-                id="result-total-zakat"
-              >
-                <ul id="result-money-total-zakat"></ul>
-                <ul id="result-livestock-total-zakat"></ul>
-                <ul id="result-crops-total-zakat"></ul>
-              </ul>
-            </div>
-          </div>
+          <table id="result-total-table" class="table align-middle">
+            <thead>
+              <tr>
+                <th><h5>Total Assets</h5></th>
+                <th><h5>Total Zakat Payable</h5></th>
+              </tr>
+            </thead>
+            <tbody id="result-total-assets-zakat"></tbody>
+          </table>
         </div>
       </div>
 

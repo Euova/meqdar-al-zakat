@@ -122,22 +122,25 @@ function fillUserSummary(userInput, userSummaryPlaceholder) {
 }
 
 function fillTotalResultBox(userInput, userResult, moneyTextFormat) {
+  const tableBody = $("#result-total-assets-zakat");
   const selectedResults = getSelectedResults(userResult);
-  const totalAssetsPlaceholder = $("#result-total-assets");
-  const totalZakatPlaceholder = $("#result-total-zakat");
   const isMoneySelected =
     selectedResults.cash ||
     selectedResults.gold ||
     selectedResults.silver ||
     selectedResults.goods;
 
-  totalAssetsPlaceholder.empty();
-  totalZakatPlaceholder.empty();
+  tableBody.empty();
 
   // Display totalAssets and totalZakat of money (cash, gold, silver, goods)
   if (isMoneySelected) {
+    const moneyTotalAssetsPlaceholder = $("#result-money-total-assets");
+    const moneyTotalZakatPlaceholder = $("#result-money-total-zakat");
     let totalAssets = 0;
     let totalZakat = 0;
+
+    moneyTotalAssetsPlaceholder.empty();
+    moneyTotalZakatPlaceholder.empty();
 
     function handleMoneyResult(money) {
       totalAssets += money.totalAssets;
@@ -150,45 +153,94 @@ function fillTotalResultBox(userInput, userResult, moneyTextFormat) {
     selectedResults.silver ? handleMoneyResult(selectedResults.silver) : null;
     selectedResults.goods ? handleMoneyResult(selectedResults.goods) : null;
 
-    totalAssetsPlaceholder.append(
-      `<li>${moneyTextFormat.format(totalAssets)}</li>`
-    );
-    totalZakatPlaceholder.append(
-      `<li>${moneyTextFormat.format(totalZakat)}</li>`
+    tableBody.append(
+      `<tr>
+        <td class="p-0 text-body-secondary py-3">${moneyTextFormat.format(
+          totalAssets
+        )}</td>
+        <td class="p-0 text-body-secondary py-3">${moneyTextFormat.format(
+          totalZakat
+        )}</td>
+      </tr>`
     );
   }
 
   // Display totalAssets and totalZakat of livestock
   if (selectedResults.livestock) {
-    totalAssetsPlaceholder.append(`<li>${userInput.camel} camel</li>`);
-    totalAssetsPlaceholder.append(`<li>${userInput.cattle} cattle</li>`);
-    totalAssetsPlaceholder.append(`<li>${userInput.sheep} sheep</li>`);
+    tableBody.append(
+      `<tr>
+        <td class="p-0 text-body-secondary py-3">${userInput.camel} camel</td>
+        <td class="p-0 text-body-secondary py-3 result-livestock-total-zakat" id="result-camel-total-zakat"></td>
+      </tr>`
+    );
 
-    Object.entries(selectedResults.livestock).forEach(([key, value]) => {
-      processLivestockZakat(totalZakatPlaceholder, value, false);
-    });
+    tableBody.append(
+      `<tr>
+        <td class="p-0 text-body-secondary py-3">${userInput.cattle} cattle</td>
+        <td class="p-0 text-body-secondary py-3 result-livestock-total-zakat" id="result-cattle-total-zakat"></td>
+      </tr>`
+    );
+
+    tableBody.append(
+      `<tr>
+        <td class="p-0 text-body-secondary py-3">${userInput.sheep} sheep</td>
+        <td class="p-0 text-body-secondary py-3 result-livestock-total-zakat" id="result-sheep-total-zakat"></td>
+      </tr>`
+    );
+
+    processLivestockZakat(
+      $("#result-camel-total-zakat"),
+      selectedResults.livestock.camel,
+      false
+    );
+    processLivestockZakat(
+      $("#result-cattle-total-zakat"),
+      selectedResults.livestock.cattle,
+      false
+    );
+    processLivestockZakat(
+      $("#result-sheep-total-zakat"),
+      selectedResults.livestock.sheep,
+      false
+    );
+
+    // Replaces the <li> tag with <p> for all livestock table data
+    $(".result-livestock-total-zakat")
+      .find("li")
+      .replaceWith(function () {
+        return $(`<p class="m-0" />`).append($(this).contents());
+      });
   }
 
   // Display totalAssets and totalZakat of crops
   if (selectedResults.crops) {
-    totalAssetsPlaceholder.append(
-      `<li>${userInput.wheat} ${userInput.wheatUnit} wheat</li>`
-    );
-    totalAssetsPlaceholder.append(
-      `<li>${userInput.barley} ${userInput.barleyUnit} barley</li>`
-    );
-    totalAssetsPlaceholder.append(
-      `<li>${userInput.dates} ${userInput.datesUnit} dates</li>`
-    );
-    totalAssetsPlaceholder.append(
-      `<li>${userInput.raisins} ${userInput.raisinsUnit} raisins</li>`
+    tableBody.append(
+      `<tr>
+        <td class="p-0 text-body-secondary py-3">${userInput.wheat} ${userInput.wheatUnit} wheat</td>
+        <td class="p-0 text-body-secondary py-3">${selectedResults.crops.wheat.count} ${selectedResults.crops.wheat.unit} wheat</td>
+      </tr>`
     );
 
-    Object.entries(selectedResults.crops).forEach(([key, value]) => {
-      totalZakatPlaceholder.append(
-        `<li>${value.count} ${value.unit} ${key}</li>`
-      );
-    });
+    tableBody.append(
+      `<tr>
+        <td class="p-0 text-body-secondary py-3">${userInput.barley} ${userInput.barleyUnit} barley</td>
+        <td class="p-0 text-body-secondary py-3">${selectedResults.crops.barley.count} ${selectedResults.crops.barley.unit} barley</td>
+      </tr>`
+    );
+
+    tableBody.append(
+      `<tr>
+        <td class="p-0 text-body-secondary py-3">${userInput.dates} ${userInput.datesUnit} dates</td>
+        <td class="p-0 text-body-secondary py-3">${selectedResults.crops.dates.count} ${selectedResults.crops.dates.unit} dates</td>
+      </tr>`
+    );
+
+    tableBody.append(
+      `<tr>
+        <td class="p-0 text-body-secondary py-3">${userInput.raisins} ${userInput.raisinsUnit} raisins</td>
+        <td class="p-0 text-body-secondary py-3">${selectedResults.crops.raisins.count} ${selectedResults.crops.raisins.unit} raisins</td>
+      </tr>`
+    );
   }
 }
 

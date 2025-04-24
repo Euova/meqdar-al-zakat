@@ -252,6 +252,15 @@ label span[data-bs-toggle="popover"] {
   border-radius: 20px;
 }
 
+#result-total-table {
+  table-layout: fixed;
+}
+
+#result-total-table th,
+#result-total-table td {
+  background-color: transparent;
+}
+
 #result-details {
   background-color: #efeff2;
   border-bottom-left-radius: 20px;
@@ -264,8 +273,7 @@ label span[data-bs-toggle="popover"] {
   margin-top: 2vw;
 }
 
-.livestock-result,
-.total-result {
+.livestock-result {
   text-align: center;
   list-style: none;
 }
