@@ -252,13 +252,20 @@ label span[data-bs-toggle="popover"] {
   border-radius: 20px;
 }
 
+#result-details {
+  background-color: #efeff2;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
 #reset-btn-container {
   display: flex;
   justify-content: center;
   margin-top: 2vw;
 }
 
-.livestock-result {
+.livestock-result,
+.total-result {
   text-align: center;
   list-style: none;
 }
@@ -298,7 +305,8 @@ footer .nav.flex-column {
   margin: auto;
 }
 
-#result-summary-title {
+#result-summary-title,
+#result-details-title {
   margin: 0;
   display: flex;
   justify-content: space-between;

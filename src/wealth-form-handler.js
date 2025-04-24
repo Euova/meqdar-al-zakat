@@ -60,6 +60,9 @@ export function handleWealthFormSubmit(e) {
     $(`#result-${type}`).addClass("selected-result");
   });
 
+  // Always display total result box
+  $("#result-total").addClass("selected-result");
+
   // Create steps circles based on the number of wealth types the user selects
   const stepsPlaceholder = $("#steps-placeholder");
   for (let i = 0; i < wealthSelected.length; i++) {

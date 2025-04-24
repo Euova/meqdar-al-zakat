@@ -1,7 +1,5 @@
 export function calculateZakat(data) {
   return new Promise((resolve, reject) => {
-    console.log(data);
-
     data = JSON.stringify(data);
     $.ajax({
       url: "https://meqdar-al-zakat-api-h2e5e4c4gqeafcax.uaenorth-01.azurewebsites.net/",

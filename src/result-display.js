@@ -67,6 +67,45 @@ function getSelectedInputs(userInput) {
   return selectedInputs;
 }
 
+function getSelectedResults(userResult) {
+  let selectedResults = {};
+
+  if ($("#result-cash").hasClass("selected-result")) {
+    selectedResults.cash = {
+      totalAssets: userResult.money.cashTotalAssets,
+      totalZakat: userResult.money.cash,
+    };
+  }
+
+  if ($("#result-gold").hasClass("selected-result")) {
+    selectedResults.gold = {
+      totalAssets: userResult.money.goldTotalAssets,
+      totalZakat: userResult.money.gold,
+    };
+  }
+
+  if ($("#result-silver").hasClass("selected-result")) {
+    selectedResults.silver = {
+      totalAssets: userResult.money.silverTotalAssets,
+      totalZakat: userResult.money.silver,
+    };
+  }
+
+  if ($("#result-livestock").hasClass("selected-result")) {
+    selectedResults.livestock = userResult.livestock;
+  }
+
+  if ($("#result-crops").hasClass("selected-result")) {
+    selectedResults.crops = userResult.crops;
+  }
+
+  if ($("#result-trade").hasClass("selected-result")) {
+    selectedResults.goods = userResult.goods;
+  }
+
+  return selectedResults;
+}
+
 function fillUserSummary(userInput, userSummaryPlaceholder) {
   userSummaryPlaceholder.empty();
 
@@ -80,6 +119,77 @@ function fillUserSummary(userInput, userSummaryPlaceholder) {
         </li>`)
     );
   });
+}
+
+function fillTotalResultBox(userInput, userResult, moneyTextFormat) {
+  const selectedResults = getSelectedResults(userResult);
+  const totalAssetsPlaceholder = $("#result-total-assets");
+  const totalZakatPlaceholder = $("#result-total-zakat");
+  const isMoneySelected =
+    selectedResults.cash ||
+    selectedResults.gold ||
+    selectedResults.silver ||
+    selectedResults.goods;
+
+  totalAssetsPlaceholder.empty();
+  totalZakatPlaceholder.empty();
+
+  // Display totalAssets and totalZakat of money (cash, gold, silver, goods)
+  if (isMoneySelected) {
+    let totalAssets = 0;
+    let totalZakat = 0;
+
+    function handleMoneyResult(money) {
+      totalAssets += money.totalAssets;
+      totalZakat += money.totalZakat;
+    }
+
+    // Add up totalAssets and totalZakat from money results
+    selectedResults.cash ? handleMoneyResult(selectedResults.cash) : null;
+    selectedResults.gold ? handleMoneyResult(selectedResults.gold) : null;
+    selectedResults.silver ? handleMoneyResult(selectedResults.silver) : null;
+    selectedResults.goods ? handleMoneyResult(selectedResults.goods) : null;
+
+    totalAssetsPlaceholder.append(
+      `<li>${moneyTextFormat.format(totalAssets)}</li>`
+    );
+    totalZakatPlaceholder.append(
+      `<li>${moneyTextFormat.format(totalZakat)}</li>`
+    );
+  }
+
+  // Display totalAssets and totalZakat of livestock
+  if (selectedResults.livestock) {
+    totalAssetsPlaceholder.append(`<li>${userInput.camel} camel</li>`);
+    totalAssetsPlaceholder.append(`<li>${userInput.cattle} cattle</li>`);
+    totalAssetsPlaceholder.append(`<li>${userInput.sheep} sheep</li>`);
+
+    Object.entries(selectedResults.livestock).forEach(([key, value]) => {
+      processLivestockZakat(totalZakatPlaceholder, value, false);
+    });
+  }
+
+  // Display totalAssets and totalZakat of crops
+  if (selectedResults.crops) {
+    totalAssetsPlaceholder.append(
+      `<li>${userInput.wheat} ${userInput.wheatUnit} wheat</li>`
+    );
+    totalAssetsPlaceholder.append(
+      `<li>${userInput.barley} ${userInput.barleyUnit} barley</li>`
+    );
+    totalAssetsPlaceholder.append(
+      `<li>${userInput.dates} ${userInput.datesUnit} dates</li>`
+    );
+    totalAssetsPlaceholder.append(
+      `<li>${userInput.raisins} ${userInput.raisinsUnit} raisins</li>`
+    );
+
+    Object.entries(selectedResults.crops).forEach(([key, value]) => {
+      totalZakatPlaceholder.append(
+        `<li>${value.count} ${value.unit} ${key}</li>`
+      );
+    });
+  }
 }
 
 function fillCashResultBox(cashTotalAssets, cashZakat, moneyTextFormat) {
@@ -97,34 +207,40 @@ function fillSilverResultBox(silverTotalAssets, silverZakat, moneyTextFormat) {
   $("#result-silver-zakat").text(moneyTextFormat.format(silverZakat));
 }
 
-function fillLivestockResultBox(camelZakat, cattleZakat, sheepZakat) {
-  function processLivestockZakat(resultPlaceholder, zakat) {
+function processLivestockZakat(
+  resultPlaceholder,
+  livestockZakat,
+  emptyPlaceholder
+) {
+  if (emptyPlaceholder) {
     resultPlaceholder.empty();
-    let count = 0;
-    let listItem;
-    for (const [key, value] of Object.entries(zakat)) {
-      if (!(value === 0 || value === "")) {
-        if (key.includes("type")) {
-          listItem.append(` ${value}`);
-        } else if (key.includes("count")) {
-          listItem = $(`<li>${value}</li>`);
-          resultPlaceholder.append(listItem);
-        } else if (key.includes("operation")) {
-          resultPlaceholder.append($(`<li>${value}</li>`));
-        }
-        count++;
+  }
+  let count = 0;
+  let listItem;
+  for (const [key, value] of Object.entries(livestockZakat)) {
+    if (!(value === 0 || value === "")) {
+      if (key.includes("type")) {
+        listItem.append(` ${value}`);
+      } else if (key.includes("count")) {
+        listItem = $(`<li>${value}</li>`);
+        resultPlaceholder.append(listItem);
+      } else if (key.includes("operation")) {
+        resultPlaceholder.append($(`<li>${value}</li>`));
       }
-    }
-
-    if (count === 0) {
-      // No items returned => No zakat to be paid
-      resultPlaceholder.append($("<li>0</li>"));
+      count++;
     }
   }
 
-  processLivestockZakat($("#result-camel"), camelZakat);
-  processLivestockZakat($("#result-cattle"), cattleZakat);
-  processLivestockZakat($("#result-sheep"), sheepZakat);
+  if (count === 0) {
+    // No items returned => No zakat to be paid
+    resultPlaceholder.append($("<li>0</li>"));
+  }
+}
+
+function fillLivestockResultBox(camelZakat, cattleZakat, sheepZakat) {
+  processLivestockZakat($("#result-camel"), camelZakat, true);
+  processLivestockZakat($("#result-cattle"), cattleZakat, true);
+  processLivestockZakat($("#result-sheep"), sheepZakat, true);
 }
 
 function fillCropsResultBox(wheatZakat, barleyZakat, datesZakat, raisinsZakat) {
@@ -147,29 +263,35 @@ function scrollToResults(resultSection, offset = 40) {
   $("html, body").scrollTop(resultSection.offset().top - offset);
 }
 
-function resetCollapseSummary(collapseButton) {
-  $(".bi-chevron-down").hide();
-  $(".bi-chevron-up").show();
+function resetCollapseSummary() {
+  // Result summary expanded by default
+  $("#result-summary-chevron-down").hide();
+  $("#result-summary-chevron-up").show();
+  $("#result-summary-title").prop("aria-expanded", "true");
+  $("#result-summary-entries").addClass("show");
 
-  collapseButton.prop("aria-expanded", "true");
-  $("#result-summary-entries").addClass("collapse show");
+  // Result details collapsed by default
+  $("#result-details-chevron-down").show();
+  $("#result-details-chevron-up").hide();
+  $("#result-details-title").prop("aria-expanded", "false");
+  $("#result-details").removeClass("show");
 }
 
-function fixCollapseArrows(collapseButton) {
-  resetCollapseSummary(collapseButton);
+function fixCollapseArrows() {
+  resetCollapseSummary();
 
   // Handle icon toggle based on collapse state
-  collapseButton.on("click", function () {
-    // Check if it's currently expanded (before Bootstrap toggles it)
+  $(".collapse-btn").on("click", function () {
+    // Check if it's currently expanded
     const isExpanded = $(this).attr("aria-expanded") === "true";
 
     // Toggle icons immediately
     if (isExpanded) {
-      $(".bi-chevron-down").hide();
-      $(".bi-chevron-up").show();
+      $(this).find(".bi-chevron-down").hide();
+      $(this).find(".bi-chevron-up").show();
     } else {
-      $(".bi-chevron-down").show();
-      $(".bi-chevron-up").hide();
+      $(this).find(".bi-chevron-down").show();
+      $(this).find(".bi-chevron-up").hide();
     }
   });
 }
@@ -187,9 +309,11 @@ export function displayResults(
     maximumFractionDigits: 2,
   });
 
-  fixCollapseArrows($("#result-summary-title"));
+  fixCollapseArrows();
 
   fillUserSummary(userInput, userSummaryPlaceholder);
+
+  fillTotalResultBox(userInput, zakatPayable, moneyTextFormat);
 
   // Cash Result Box
   fillCashResultBox(

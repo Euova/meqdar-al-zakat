@@ -1172,14 +1172,15 @@
       <div id="result-summary-section" class="mb-3">
         <h5
           id="result-summary-title"
+          class="collapse-btn"
           data-bs-toggle="collapse"
           data-bs-target="#result-summary-entries"
           aria-expanded="true"
         >
           Input Summary
           <div>
-            <i class="bi bi-chevron-down"></i>
-            <i class="bi bi-chevron-up"></i>
+            <i id="result-summary-chevron-down" class="bi bi-chevron-down"></i>
+            <i id="result-summary-chevron-up" class="bi bi-chevron-up"></i>
           </div>
         </h5>
         <div id="result-summary-entries" class="collapse show">
@@ -1187,120 +1188,179 @@
         </div>
       </div>
 
-      <div class="row result-tab" id="result-cash">
+      <div class="result-tab" id="result-total">
         <div class="result-box mb-3 py-4">
-          <h3 class="mb-4">Cash</h3>
+          <h3 class="mb-4">Total Zakat</h3>
           <div class="row">
             <div class="col mb-3">
               <h5>Total Assets</h5>
-              <p class="p-0 text-body-secondary" id="result-cash-total"></p>
-            </div>
-            <div class="col mb-3">
-              <h5>Total Zakat Payable</h5>
-              <p class="p-0 text-body-secondary" id="result-cash-zakat"></p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row result-tab" id="result-gold">
-        <div class="result-box mb-3 py-4">
-          <h3 class="mb-4">Gold</h3>
-          <div class="row">
-            <div class="col mb-3">
-              <h5>Total Assets</h5>
-              <p class="p-0 text-body-secondary" id="result-gold-total"></p>
-            </div>
-            <div class="col mb-3">
-              <h5>Total Zakat Payable</h5>
-              <p class="p-0 text-body-secondary" id="result-gold-zakat"></p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row result-tab" id="result-silver">
-        <div class="result-box mb-3 py-4">
-          <h3 class="mb-4">Silver</h3>
-          <div class="row">
-            <div class="col mb-3">
-              <h5>Total Assets</h5>
-              <p class="p-0 text-body-secondary" id="result-silver-total"></p>
-            </div>
-            <div class="col mb-3">
-              <h5>Total Zakat Payable</h5>
-              <p class="p-0 text-body-secondary" id="result-silver-zakat"></p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row result-tab" id="result-livestock">
-        <div class="result-box mb-3 py-4">
-          <h3 class="mb-4">Livestock</h3>
-          <div class="row">
-            <div class="col mb-3">
-              <h5>Camel Zakat</h5>
               <ul
-                class="p-0 text-body-secondary livestock-result"
-                id="result-camel"
-              ></ul>
-            </div>
-            <div class="col mb-3">
-              <h5>Cattle Zakat</h5>
-              <ul
-                class="p-0 text-body-secondary livestock-result"
-                id="result-cattle"
+                class="p-0 text-body-secondary total-result"
+                id="result-total-assets"
               >
-                <li>Sheep 1</li>
+                <ul id="result-money-total-assets"></ul>
+                <ul id="result-livestock-total-assets"></ul>
+                <ul id="result-crops-total-assets"></ul>
               </ul>
             </div>
             <div class="col mb-3">
-              <h5>Sheep Zakat</h5>
-              <ul
-                class="p-0 text-body-secondary livestock-result"
-                id="result-sheep"
-              ></ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row result-tab" id="result-crops">
-        <div class="result-box mb-3 py-4">
-          <h3 class="mb-4">Crops and Fruits</h3>
-          <div class="row">
-            <div class="col mb-3">
-              <h5>Wheat Zakat</h5>
-              <p class="p-0 text-body-secondary" id="result-wheat"></p>
-            </div>
-            <div class="col mb-3">
-              <h5>Barley Zakat</h5>
-              <p class="p-0 text-body-secondary" id="result-barley"></p>
-            </div>
-            <div class="col mb-3">
-              <h5>Dates Zakat</h5>
-              <p class="p-0 text-body-secondary" id="result-dates"></p>
-            </div>
-            <div class="col mb-3">
-              <h5>Raisins Zakat</h5>
-              <p class="p-0 text-body-secondary" id="result-raisins"></p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row result-tab" id="result-trade">
-        <div class="result-box mb-3 py-4">
-          <h3 class="mb-4">Trade Goods</h3>
-          <div class="row">
-            <div class="col mb-3">
-              <h5>Total Assets</h5>
-              <p class="p-0 text-body-secondary" id="result-goods-total"></p>
-            </div>
-            <div class="col mb-3">
               <h5>Total Zakat Payable</h5>
-              <p class="p-0 text-body-secondary" id="result-goods-zakat"></p>
+              <ul
+                class="p-0 text-body-secondary total-result"
+                id="result-total-zakat"
+              >
+                <ul id="result-money-total-zakat"></ul>
+                <ul id="result-livestock-total-zakat"></ul>
+                <ul id="result-crops-total-zakat"></ul>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h5
+          id="result-details-title"
+          class="collapse-btn"
+          data-bs-toggle="collapse"
+          data-bs-target="#result-details"
+          aria-expanded="false"
+        >
+          Show Details
+          <div>
+            <i id="result-details-chevron-down" class="bi bi-chevron-down"></i>
+            <i id="result-details-chevron-up" class="bi bi-chevron-up"></i>
+          </div>
+        </h5>
+        <div class="collapse" id="result-details">
+          <div class="result-tab" id="result-cash">
+            <div class="result-box mb-3 py-4">
+              <h3 class="mb-4">Cash</h3>
+              <div class="row">
+                <div class="col mb-3">
+                  <h5>Total Assets</h5>
+                  <p class="p-0 text-body-secondary" id="result-cash-total"></p>
+                </div>
+                <div class="col mb-3">
+                  <h5>Total Zakat Payable</h5>
+                  <p class="p-0 text-body-secondary" id="result-cash-zakat"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="result-tab" id="result-gold">
+            <div class="result-box mb-3 py-4">
+              <h3 class="mb-4">Gold</h3>
+              <div class="row">
+                <div class="col mb-3">
+                  <h5>Total Assets</h5>
+                  <p class="p-0 text-body-secondary" id="result-gold-total"></p>
+                </div>
+                <div class="col mb-3">
+                  <h5>Total Zakat Payable</h5>
+                  <p class="p-0 text-body-secondary" id="result-gold-zakat"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="result-tab" id="result-silver">
+            <div class="result-box mb-3 py-4">
+              <h3 class="mb-4">Silver</h3>
+              <div class="row">
+                <div class="col mb-3">
+                  <h5>Total Assets</h5>
+                  <p
+                    class="p-0 text-body-secondary"
+                    id="result-silver-total"
+                  ></p>
+                </div>
+                <div class="col mb-3">
+                  <h5>Total Zakat Payable</h5>
+                  <p
+                    class="p-0 text-body-secondary"
+                    id="result-silver-zakat"
+                  ></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="result-tab" id="result-livestock">
+            <div class="result-box mb-3 py-4">
+              <h3 class="mb-4">Livestock</h3>
+              <div class="row">
+                <div class="col mb-3">
+                  <h5>Camel Zakat</h5>
+                  <ul
+                    class="p-0 text-body-secondary livestock-result"
+                    id="result-camel"
+                  ></ul>
+                </div>
+                <div class="col mb-3">
+                  <h5>Cattle Zakat</h5>
+                  <ul
+                    class="p-0 text-body-secondary livestock-result"
+                    id="result-cattle"
+                  >
+                    <li>Sheep 1</li>
+                  </ul>
+                </div>
+                <div class="col mb-3">
+                  <h5>Sheep Zakat</h5>
+                  <ul
+                    class="p-0 text-body-secondary livestock-result"
+                    id="result-sheep"
+                  ></ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="result-tab" id="result-crops">
+            <div class="result-box mb-3 py-4">
+              <h3 class="mb-4">Crops and Fruits</h3>
+              <div class="row">
+                <div class="col mb-3">
+                  <h5>Wheat Zakat</h5>
+                  <p class="p-0 text-body-secondary" id="result-wheat"></p>
+                </div>
+                <div class="col mb-3">
+                  <h5>Barley Zakat</h5>
+                  <p class="p-0 text-body-secondary" id="result-barley"></p>
+                </div>
+                <div class="col mb-3">
+                  <h5>Dates Zakat</h5>
+                  <p class="p-0 text-body-secondary" id="result-dates"></p>
+                </div>
+                <div class="col mb-3">
+                  <h5>Raisins Zakat</h5>
+                  <p class="p-0 text-body-secondary" id="result-raisins"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="result-tab" id="result-trade">
+            <div class="result-box mb-3 py-4">
+              <h3 class="mb-4">Trade Goods</h3>
+              <div class="row">
+                <div class="col mb-3">
+                  <h5>Total Assets</h5>
+                  <p
+                    class="p-0 text-body-secondary"
+                    id="result-goods-total"
+                  ></p>
+                </div>
+                <div class="col mb-3">
+                  <h5>Total Zakat Payable</h5>
+                  <p
+                    class="p-0 text-body-secondary"
+                    id="result-goods-zakat"
+                  ></p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
